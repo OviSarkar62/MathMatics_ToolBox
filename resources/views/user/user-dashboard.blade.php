@@ -81,7 +81,7 @@
                                 <div class="col-md-4">
                                     <ul>
                                         <li><a href="{{ route('age-calculator.index') }}">Age Calculator</a></li>
-                                        <li><a href="{{ route('unit-converter.index') }}">BMI Calculator</a></li>
+                                        <li><a href="{{ route('bmi-calculator.index') }}">BMI Calculator</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -95,8 +95,8 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('currency-converter.index') }}">Currency Converter</a></li>
-                                        <li><a href="{{ route('unit-converter.index') }}">Unit Converter</a></li>
+                                        <li><a href="#">Currency Converter</a></li>
+                                        <li><a href="#">Unit Converter</a></li>
                                         <li><a href="{{ route('temperature-converter.index') }}">Temperature Converter</a>
                                         </li>
                                     </ul>
@@ -110,9 +110,10 @@
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('imperial-to-metric.index') }}">Imperial to Metric</a></li>
-                                        <li><a href="{{ route('weight-converter.index') }}">Weight Converter</a></li>
-                                        <li><a href="{{ route('length-converter.index') }}">Length Converter</a></li>
+                                        <li><a href="{{ route('binary-converter.index') }}">Binary Converter</a></li>
+                                        <li><a href="{{ route('decimal-converter.index') }}">Decimal Converter</a></li>
+                                        <li><a href="{{ route('octal-converter.index') }}">Octal Converter</a></li>
+                                        <li><a href="{{ route('hexadecimal-converter.index') }}">Hexadecimal Converter</a></li>
                                     </ul>
                                 </div>
                             </div>

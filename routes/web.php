@@ -69,22 +69,22 @@ Route::get('/tip-calculator', [CalculatorController::class, 'tipCalculator'])->n
 Route::get('/loan-calculator', [CalculatorController::class, 'loanCalculator'])->name('loan-calculator.index');
 
 // Converter Routes
-Route::get('/currency-converter', [ConverterController::class, 'currencyConverter'])->name('currency-converter.index');
+
 Route::get('/unit-converter', [ConverterController::class, 'unitConverter'])->name('unit-converter.index');
 Route::get('/temperature-converter', [ConverterController::class, 'temperatureConverter'])->name('temperature-converter.index');
 Route::get('/time-converter', [ConverterController::class, 'timeConverter'])->name('time-converter.index');
 Route::get('/date-converter', [ConverterController::class, 'dateConverter'])->name('date-converter.index');
 Route::get('/metric-to-imperial', [ConverterController::class, 'metricToImperial'])->name('metric-to-imperial.index');
 Route::get('/imperial-to-metric', [ConverterController::class, 'imperialToMetric'])->name('imperial-to-metric.index');
-Route::get('/weight-converter', [ConverterController::class, 'weightConverter'])->name('weight-converter.index');
-Route::get('/length-converter', [ConverterController::class, 'lengthConverter'])->name('length-converter.index');
+
 Route::get('/volume-converter', [ConverterController::class, 'volumeConverter'])->name('volume-converter.index');
 Route::get('/area-converter', [ConverterController::class, 'areaConverter'])->name('area-converter.index');
 Route::get('/speed-converter', [ConverterController::class, 'speedConverter'])->name('speed-converter.index');
 Route::get('/pressure-converter', [ConverterController::class, 'pressureConverter'])->name('pressure-converter.index');
 Route::get('/energy-converter', [ConverterController::class, 'energyConverter'])->name('energy-converter.index');
-Route::get('/power-converter', [ConverterController::class, 'powerConverter'])->name('power-converter.index');
-Route::get('/data-storage-converter', [ConverterController::class, 'dataStorageConverter'])->name('data-storage-converter.index');
-Route::get('/fuel-economy-converter', [ConverterController::class, 'fuelEconomyConverter'])->name('fuel-economy-converter.index');
-Route::get('/cooking-converter', [ConverterController::class, 'cookingConverter'])->name('cooking-converter.index');
+
+Route::get('/binary-converter', [ConverterController::class, 'binaryConverter'])->name('binary-converter.index');
+Route::get('/decimal-converter', [ConverterController::class, 'decimalConverter'])->name('decimal-converter.index');
+Route::get('/octal-converter', [ConverterController::class, 'octalConverter'])->name('octal-converter.index');
+Route::get('/hexadecimal-converter', [ConverterController::class, 'hexadecimalConverter'])->name('hexadecimal-converter.index');
 

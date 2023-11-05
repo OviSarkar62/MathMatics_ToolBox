@@ -10,4 +10,10 @@ class CalculatorController extends Controller
     {
         return view('calculator.age-calculator');
     }
+
+    public function bmiCalculator()
+    {
+        return view('calculator.bmi-calculator');
+    }
+
 }

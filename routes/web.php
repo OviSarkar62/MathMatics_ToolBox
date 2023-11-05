@@ -66,7 +66,7 @@ Route::get('/mortgage-calculator', [CalculatorController::class, 'mortgageCalcul
 Route::get('/bmi-calculator', [CalculatorController::class, 'bmiCalculator'])->name('bmi-calculator.index');
 Route::get('/gpa-calculator', [CalculatorController::class, 'gpaCalculator'])->name('gpa-calculator.index');
 Route::get('/tip-calculator', [CalculatorController::class, 'tipCalculator'])->name('tip-calculator.index');
-Route::get('/loan-calculator', [CalculatorController::class, 'loanCalculator'])->name('loan-calculator.index');
+Route::get('/area-calculator', [CalculatorController::class, 'areaCalculator'])->name('area-calculator.index');
 
 // Converter Routes
 

@@ -16,4 +16,9 @@ class CalculatorController extends Controller
         return view('calculator.bmi-calculator');
     }
 
+    public function areaCalculator()
+    {
+        return view('calculator.area-calculator');
+    }
+
 }

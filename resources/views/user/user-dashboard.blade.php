@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('geometry-calculator.index') }}">Geometry Calculator</a></li>
+                                        <li><a href="{{ route('area-calculator.index') }}">Area Calculator</a></li>
                                         <li><a href="{{ route('matrix-calculator.index') }}">Matrix Calculator</a></li>
                                         <li><a href="{{ route('probability-calculator.index') }}">Probability
                                                 Calculator</a></li>

@@ -1,5 +1,53 @@
 @extends('layouts.app')
+<style>
 
+/* Add this style to your existing CSS file or create a new one */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    flex: 1; /* Make each card take up equal width */
+    margin-right: 15px; /* Adjust margin for spacing between cards */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-right: 0; /* Remove margin for small screens */
+    }
+}
+
+</style>
 @section('content')
     <div class="container mt-5">
         <div class="row">

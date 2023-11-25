@@ -1,5 +1,56 @@
 @extends('layouts.app')
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa; /* Light background color */
+    }
 
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .card {
+            margin-top: 20px;
+        }
+    }
+
+    #validation-error {
+        margin-top: 10px;
+    }
+
+    #binary-result {
+        margin-top: 20px;
+        display: none;
+    }
+
+    #binary-value {
+        font-size: 1.5rem;
+    }
+</style>
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">

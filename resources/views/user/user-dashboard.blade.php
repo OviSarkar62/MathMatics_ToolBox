@@ -1,4 +1,63 @@
 @extends('layouts.app')
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .alert {
+        margin-bottom: 20px;
+    }
+
+    h5 {
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .card {
+            margin-top: 20px;
+        }
+    }
+</style>
 
 @section('content')
     <div class="container mt-5">
@@ -20,7 +79,7 @@
                 <div class="card-body">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5>Calculate Maths</h5>
+                            <h5>Arithmetic Operations</h5>
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
@@ -28,9 +87,9 @@
                                         <li><a href="{{ route('subtraction.index') }}">Subtraction</a></li>
                                         <li><a href="{{ route('multiplication.index') }}">Multiplication</a></li>
                                         <li><a href="{{ route('division.index') }}">Division</a></li>
-                                        <li><a href="{{ route('lcm.index') }}">LCM</a></li>
+                                        {{-- <li><a href="{{ route('lcm.index') }}">LCM</a></li>
                                         <li><a href="{{ route('hcf.index') }}">HCF</a></li>
-                                        <li><a href="{{ route('bodmas.index') }}">BODMAS</a></li>
+                                        <li><a href="{{ route('bodmas.index') }}">BODMAS</a></li> --}}
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
@@ -39,17 +98,14 @@
                                         <li><a href="{{ route('subtract-fractions.index') }}">Subtract Fractions</a></li>
                                         <li><a href="{{ route('multiply-fractions.index') }}">Multiply Fractions</a></li>
                                         <li><a href="{{ route('division-fractions.index') }}">Division Fractions</a></li>
-                                        <li><a href="{{ route('add-mixed-fractions.index') }}">Add Mixed Fractions</a></li>
-                                        <li><a href="{{ route('subtract-mixed-fractions.index') }}">Subtract Mixed
-                                                Fractions</a></li>
-                                        <li><a href="{{ route('multiply-mixed-fractions.index') }}">Multiply Mixed
-                                                Fractions</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('average-of-mixed-numbers.index') }}">Average Of Mixed
-                                                Numbers</a></li>
+                                        <li><a href="{{ route('add-mixed-fractions.index') }}">Add Mixed Fractions</a></li>
+                                        <li><a href="{{ route('subtract-mixed-fractions.index') }}">Subtract Mixed Fractions</a></li>
+                                        <li><a href="{{ route('multiply-mixed-fractions.index') }}">Multiply Mixed Fractions</a></li>
+                                        <li><a href="{{ route('divide-mixed-fractions.index') }}">Divide Mixed Fractions</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -64,24 +120,22 @@
                                 <div class="col-md-4">
                                     <ul>
                                         <li><a href="{{ route('standard-calculator.index') }}">Standard Calculator</a></li>
-                                        <li><a href="{{ route('scientific-calculator.index') }}">Scientific Calculator</a>
-                                        </li>
-                                        <li><a href="{{ route('financial-calculator.index') }}">Financial Calculator</a>
-                                        </li>
+                                        <li><a href="{{ route('percentage-calculator.index') }}">Percentage Calculator</a></li>
+                                        <li><a href="{{ route('probability-calculator.index') }}">Probability Calculator</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
+                                        <li><a href="{{ route('geometry-calculator.index') }}">Geometry Calculator</a></li>
                                         <li><a href="{{ route('area-calculator.index') }}">Area Calculator</a></li>
-                                        <li><a href="{{ route('matrix-calculator.index') }}">Matrix Calculator</a></li>
-                                        <li><a href="{{ route('probability-calculator.index') }}">Probability
-                                                Calculator</a></li>
+                                        <li><a href="{{ route('volume-calculator.index') }}">Volume Calculator</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
                                         <li><a href="{{ route('age-calculator.index') }}">Age Calculator</a></li>
                                         <li><a href="{{ route('bmi-calculator.index') }}">BMI Calculator</a></li>
+                                        <li><a href="{{ route('gpa-calculator.index') }}">GPA Calculator</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -95,17 +149,18 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="#">Currency Converter</a></li>
-                                        <li><a href="#">Unit Converter</a></li>
-                                        <li><a href="{{ route('temperature-converter.index') }}">Temperature Converter</a>
-                                        </li>
+                                        <li><a href="{{ route('unit-converter.index') }}">Unit Converter</a></li>
+                                        <li><a href="{{ route('temperature-converter.index') }}">Temperature Converter</a></li>
+                                        <li><a href="{{ route('pressure-converter.index') }}">Pressure Converter</a></li>
+                                        <li><a href="{{ route('energy-converter.index') }}">Energy Converter</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('time-converter.index') }}">Time Converter</a></li>
-                                        <li><a href="{{ route('date-converter.index') }}">Date Converter</a></li>
-                                        <li><a href="{{ route('metric-to-imperial.index') }}">Metric to Imperial</a></li>
+                                        <li><a href="{{ route('metric-imperial-converter.index') }}">Metric to Imperial</a></li>
+                                        <li><a href="{{ route('time-zone-converter.index') }}">Time Zone Converter</a></li>
+                                        <li><a href="{{ route('gpa-percentage-converter.index') }}">GPA Percentage Converter</a></li>
+                                        <li><a href="{{ route('interest-rate-converter.index') }}">Interest Rate Converter</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">

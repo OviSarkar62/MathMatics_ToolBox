@@ -50,13 +50,13 @@
     ul li a:hover {
         text-decoration: underline;
     }
-
     /* Responsive adjustments */
     @media (max-width: 767px) {
         .card {
             margin-top: 20px;
         }
     }
+
 </style>
 
 @section('content')
@@ -77,7 +77,7 @@
             </div>
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="card mb-4">
+                    <div class="card mb-4 animated-card-arithmetic">
                         <div class="card-body">
                             <h5>Arithmetic Operations</h5>
                             <div class="row">
@@ -113,7 +113,7 @@
                     </div>
 
                     <!-- Calculators Card -->
-                    <div class="card mb-4">
+                    <div class="card mb-4 animated-card-calculator">
                         <div class="card-body">
                             <h5>Calculators</h5>
                             <div class="row">
@@ -143,7 +143,7 @@
                     </div>
 
                     <!-- Converters Card -->
-                    <div class="card">
+                    <div class="card animated-card-converter">
                         <div class="card-body">
                             <h5>Converters</h5>
                             <div class="row">
@@ -178,6 +178,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

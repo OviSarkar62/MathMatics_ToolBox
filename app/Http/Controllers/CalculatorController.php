@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class CalculatorController extends Controller
 {
+    public function standardCalculator()
+    {
+        return view('calculator.standard-calculator');
+    }
     public function geometryCalculator()
     {
         return view('calculator.geometry-calculator');

@@ -28,6 +28,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
     width: 100%; /* Make all cards have the same width */
+    margin-top: 80px;
 }
 
 .card:hover {

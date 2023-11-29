@@ -21,6 +21,7 @@ body {
     transition: box-shadow 0.3s ease;
     flex: 1; /* Make each card take up equal width */
     margin-right: 15px; /* Adjust margin for spacing between cards */
+    margin-top: 80px;
 }
 
 .card:hover {

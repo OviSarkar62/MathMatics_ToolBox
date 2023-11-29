@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class ConverterController extends Controller
 {
-    public function unitConverter()
+    public function storageConverter()
     {
-        return view('converter.unit-converter');
+        return view('converter.storage-converter');
     }
     public function temperatureConverter()
     {

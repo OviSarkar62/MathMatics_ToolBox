@@ -1,13 +1,8 @@
 @extends('layouts.app')
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa; /* Light background color */
-    }
 
     .container {
         max-width: 1200px;
-        margin: 20px auto;
     }
 
     .card {
@@ -21,7 +16,7 @@
     }
 
     .card-body {
-        padding: 20px;
+        padding: 10px;
     }
 
     .alert {
@@ -57,10 +52,12 @@
         }
     }
 
+
 </style>
 
 @section('content')
     <div class="container mt-5">
+        <div class="thumbnail-container" id="thumbnailContainer"></div>
         <div class="row justify-content-center">
             @if (Session::has('success'))
                 <div class="alert alert-success">{{ Session::get('success') }}</div>
@@ -75,7 +72,7 @@
                     <h5>Hello, {{ auth()->user()->name }}, Use MathMagic ToolBox</h5>
                 </div>
             </div>
-            <div class="card mb-4">
+
                 <div class="card-body">
                     <div class="card mb-4 animated-card-arithmetic">
                         <div class="card-body">
@@ -83,6 +80,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
+                                        {{-- <li><a href="{{ route('addition.index') }}" data-preview="{{ asset('assets/images/addition1.png') }}" onmouseover="showThumbnail(this)" onmouseout="hideThumbnail()">Addition</a></li> --}}
                                         <li><a href="{{ route('addition.index') }}">Addition</a></li>
                                         <li><a href="{{ route('subtraction.index') }}">Subtraction</a></li>
                                         <li><a href="{{ route('multiplication.index') }}">Multiplication</a></li>
@@ -119,7 +117,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('standard-calculator.index') }}">Standard Calculator</a></li>
+                                        <li><a href="{{ route('standard-calculator.index') }}">Arithmetic Calculator</a></li>
                                         <li><a href="{{ route('percentage-calculator.index') }}">Percentage Calculator</a></li>
                                         <li><a href="{{ route('probability-calculator.index') }}">Probability Calculator</a></li>
                                     </ul>
@@ -149,7 +147,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('unit-converter.index') }}">Unit Converter</a></li>
+                                        <li><a href="{{ route('storage-converter.index') }}">Data Storage Converter</a></li>
                                         <li><a href="{{ route('temperature-converter.index') }}">Temperature Converter</a></li>
                                         <li><a href="{{ route('pressure-converter.index') }}">Pressure Converter</a></li>
                                         <li><a href="{{ route('energy-converter.index') }}">Energy Converter</a></li>
@@ -177,5 +175,30 @@
                 </div>
             </div>
         </div>
-    </div>
+
+{{--
+    <script>
+        function showThumbnail(element) {
+            // Get the preview path from data-preview attribute
+            var previewPath = element.getAttribute('data-preview');
+
+            // Get the position of the hovered link
+            var linkRect = element.getBoundingClientRect();
+
+            // Get the thumbnail container and update its content
+            var thumbnailContainer = document.getElementById('thumbnailContainer');
+            thumbnailContainer.innerHTML = `<img src="${previewPath}" alt="Preview Thumbnail">`;
+
+            // Set the position of the thumbnail container
+            thumbnailContainer.style.display = 'block';
+            thumbnailContainer.style.top = `${linkRect.top}px`; // Adjust the positioning as needed
+            thumbnailContainer.style.left = `${linkRect.right}px`;
+        }
+
+        function hideThumbnail() {
+            // Hide the thumbnail container
+            var thumbnailContainer = document.getElementById('thumbnailContainer');
+            thumbnailContainer.style.display = 'none';
+        }
+    </script> --}}
 @endsection

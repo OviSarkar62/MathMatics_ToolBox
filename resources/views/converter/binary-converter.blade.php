@@ -1,9 +1,5 @@
 @extends('layouts.app')
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa; /* Light background color */
-    }
 
     .container {
         max-width: 600px;
@@ -13,6 +9,7 @@
     .card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease;
+        margin-top: 100px;
     }
 
     .card:hover {

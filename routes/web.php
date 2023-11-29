@@ -58,7 +58,7 @@ Route::get('/bmi-calculator', [CalculatorController::class, 'bmiCalculator'])->n
 Route::get('/gpa-calculator', [CalculatorController::class, 'gpaCalculator'])->name('gpa-calculator.index');
 
 // Converter Routes
-Route::get('/unit-converter', [ConverterController::class, 'unitConverter'])->name('unit-converter.index');
+Route::get('/storage-converter', [ConverterController::class, 'storageConverter'])->name('storage-converter.index');
 Route::get('/temperature-converter', [ConverterController::class, 'temperatureConverter'])->name('temperature-converter.index');
 Route::get('/pressure-converter', [ConverterController::class, 'pressureConverter'])->name('pressure-converter.index');
 Route::get('/energy-converter', [ConverterController::class, 'energyConverter'])->name('energy-converter.index');

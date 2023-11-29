@@ -2,11 +2,6 @@
 <style>
 
     /* Add this style to your existing CSS file or create a new one */
-
-    body {
-        font-family: 'Arial', sans-serif;
-    }
-
     .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -21,6 +16,7 @@
         transition: box-shadow 0.3s ease;
         flex: 1; /* Make each card take up equal width */
         margin-right: 15px; /* Adjust margin for spacing between cards */
+        margin-top: 100px;
     }
 
     .card:hover {

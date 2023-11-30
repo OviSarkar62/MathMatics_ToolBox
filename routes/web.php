@@ -14,8 +14,8 @@ Route::get('/', function () {
 });
 
 // User Registration Routes
-Route::get('/register/user', [AuthController::class, 'createUser'])->name('create.user');
-Route::post('/register/user', [AuthController::class, 'storeUser'])->name('store.user');
+Route::get('/register', [AuthController::class, 'createUser'])->name('create.user');
+Route::post('/register', [AuthController::class, 'storeUser'])->name('store.user');
 
 // User Login Routes
 Route::view('/login', 'user.user-login')->name('login');

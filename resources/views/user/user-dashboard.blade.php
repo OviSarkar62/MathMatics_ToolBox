@@ -1,6 +1,7 @@
 @extends('layouts.app')
 <style>
 
+
     .container {
         max-width: 1200px;
     }
@@ -9,6 +10,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease;
         margin-bottom: 20px;
+
     }
 
     .card:hover {
@@ -17,6 +19,7 @@
 
     .card-body {
         padding: 10px;
+
     }
 
     .alert {
@@ -38,7 +41,7 @@
 
     ul li a {
         text-decoration: none;
-        color: #007bff;
+        color: #000;
         font-weight: bold;
     }
 

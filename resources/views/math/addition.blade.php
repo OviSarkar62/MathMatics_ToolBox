@@ -66,7 +66,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Addition</h5>
+                        <h5>Addition of Integer</h5>
                         <form id="addition-form">
                             <div id="input-container">
                                 <input type="number" name="values[]" class="form-control mb-3" placeholder="Enter a number">
@@ -112,7 +112,7 @@
             inputContainer.appendChild(input);
         });
 
-        // Reset input fields
+        // Reset input fields and result
         document.getElementById('reset-input').addEventListener('click', function() {
             const inputFields = document.getElementsByName('values[]');
             inputFields.forEach(function(inputField) {
@@ -127,27 +127,28 @@
 
         // Calculate addition on form submit
         document.getElementById('addition-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const values = document.getElementsByName('values[]');
-            let sum = 0;
-            let resultText = '';
+        event.preventDefault();
+        const values = document.getElementsByName('values[]');
+        let sum = 0;
+        let resultText = '';
 
-            for (const value of values) {
-                if (value.value) {
-                    const number = parseInt(value.value);
-                    sum += number;
-                    resultText += number + '<br>';
-                }
+        for (const value of values) {
+            if (value.value) {
+                const number = parseInt(value.value);
+                sum += number;
+                resultText += number + '<br>';
             }
+        }
 
-            if (sum > 0) {
-                resultText += '----------------------------------------<br>';
-                resultText += sum;
-                document.getElementById('result-values').innerHTML = resultText;
-            } else {
-                document.getElementById('result-values').innerHTML = '';
-                document.getElementById('total').innerHTML = '';
-            }
-        });
+        const horizontalLine = '-'.repeat(resultText.length-6) + '<br>';
+
+        resultText += horizontalLine;
+        resultText += sum;
+
+        document.getElementById('result-values').innerHTML = resultText;
+    });
+
     </script>
 @endsection
+
+

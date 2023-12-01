@@ -70,9 +70,9 @@
                 <div class="alert alert-danger">{{ Session::get('error') }}</div>
             @endif
 
-            <div class="card mb-4">
+            <div class="card mb-4" style="margin-top: 90px;">
                 <div class="card-body">
-                    <h5>Hello, {{ auth()->user()->name }}, Use MathMagic ToolBox</h5>
+                    <h5 style="text-transform: uppercase;">Welcome, {{ auth()->user()->name }}! Use MathMagic ToolBox</h5>
                 </div>
             </div>
 
@@ -84,10 +84,10 @@
                                 <div class="col-md-4">
                                     <ul>
                                         {{-- <li><a href="{{ route('addition.index') }}" data-preview="{{ asset('assets/images/addition1.png') }}" onmouseover="showThumbnail(this)" onmouseout="hideThumbnail()">Addition</a></li> --}}
-                                        <li><a href="{{ route('addition.index') }}">Addition</a></li>
-                                        <li><a href="{{ route('subtraction.index') }}">Subtraction</a></li>
-                                        <li><a href="{{ route('multiplication.index') }}">Multiplication</a></li>
-                                        <li><a href="{{ route('division.index') }}">Division</a></li>
+                                        <li><a href="{{ route('addition.index') }}">Add Integer</a></li>
+                                        <li><a href="{{ route('subtraction.index') }}">Subtract Integer</a></li>
+                                        <li><a href="{{ route('multiplication.index') }}">Multiply Integer</a></li>
+                                        <li><a href="{{ route('division.index') }}">Divide Integer</a></li>
                                         {{-- <li><a href="{{ route('lcm.index') }}">LCM</a></li>
                                         <li><a href="{{ route('hcf.index') }}">HCF</a></li>
                                         <li><a href="{{ route('bodmas.index') }}">BODMAS</a></li> --}}
@@ -98,7 +98,7 @@
                                         <li><a href="{{ route('add-fractions.index') }}">Add Fractions</a></li>
                                         <li><a href="{{ route('subtract-fractions.index') }}">Subtract Fractions</a></li>
                                         <li><a href="{{ route('multiply-fractions.index') }}">Multiply Fractions</a></li>
-                                        <li><a href="{{ route('division-fractions.index') }}">Division Fractions</a></li>
+                                        <li><a href="{{ route('division-fractions.index') }}">Divide Fractions</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">

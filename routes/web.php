@@ -20,7 +20,8 @@ Route::post('/register', [AuthController::class, 'storeUser'])->name('store.user
 // User Login Routes
 Route::view('/login', 'user.user-login')->name('login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login.post');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 // User Dashboard
 Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');

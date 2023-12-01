@@ -64,7 +64,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Subtraction</h5>
+                        <h5>Subtraction of Integer</h5>
                         <form id="subtraction-form">
                             <div id="input-container">
                                 <input type="number" name="values[]" class="form-control mb-3" placeholder="Enter a number">
@@ -128,33 +128,34 @@
 
         // Calculate subtraction on form submit
         document.getElementById('subtraction-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const values = document.getElementsByName('values[]');
-            let result = 0;
-            let resultText = '';
+        event.preventDefault();
+        const values = document.getElementsByName('values[]');
+        let result = 0;
+        let resultText = '';
 
-            for (let i = 0; i < values.length; i++) {
-                if (values[i].value) {
-                    const number = parseFloat(values[i].value);
-                    if (i === 0) {
-                        result = number;
-                        resultText += number + '<br>';
-                    } else {
-                        result -= number;
-                        resultText += values[i].value + '<br>';
-                    }
+        for (let i = 0; i < values.length; i++) {
+            if (values[i].value) {
+                const number = parseFloat(values[i].value);
+                if (i === 0) {
+                    result = number;
+                    resultText += number + '<br>';
+                } else {
+                    result -= number;
+                    resultText += values[i].value + '<br>';
                 }
             }
+        }
 
-            if (resultText !== '') {
-                resultText = resultText.slice(0, -4); // Remove the last '<br>'
-                resultText += '<br>----------------------------------------<br>';
-                resultText += result;
-                document.getElementById('result-values').innerHTML = resultText;
-            } else {
-                document.getElementById('result-values').innerHTML = '';
-                document.getElementById('total').innerHTML = '';
-            }
-        });
+        if (resultText !== '') {
+            resultText = resultText.slice(0, -4); // Remove the last '<br>'
+            const horizontalLine = '-'.repeat(resultText.length) + '<br>';
+            resultText += `<br>${horizontalLine}`;
+            resultText += result;
+            document.getElementById('result-values').innerHTML = resultText;
+        } else {
+            document.getElementById('result-values').innerHTML = '';
+            document.getElementById('total').innerHTML = '';
+        }
+    });
     </script>
 @endsection

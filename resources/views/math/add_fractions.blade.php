@@ -148,53 +148,53 @@
         });
 
 
-// Function to find the greatest common divisor
-function gcd(a, b) {
-    return b === 0 ? a : gcd(b, a % b);
-}
+        // Function to find the greatest common divisor
+        function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
 
-// Function to simplify a fraction
-function simplifyFraction(numerator, denominator) {
-    const commonDivisor = gcd(numerator, denominator);
-    return {
-        numerator: numerator / commonDivisor,
-        denominator: denominator / commonDivisor
-    };
-}
+        // Function to simplify a fraction
+        function simplifyFraction(numerator, denominator) {
+            const commonDivisor = gcd(numerator, denominator);
+            return {
+                numerator: numerator / commonDivisor,
+                denominator: denominator / commonDivisor
+            };
+        }
 
-    // Calculate addition on form submit
-    document.getElementById('addition-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const numerators = document.getElementsByName('numerator[]');
-        const denominators = document.getElementsByName('denominator[]');
-        let resultText = '';
 
-        let commonDenominator = 1;
-        for (const denominator of denominators) {
-            if (denominator.value) {
-                commonDenominator *= parseInt(denominator.value);
+        // Calculate addition on form submit
+        document.getElementById('addition-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const numerators = document.getElementsByName('numerator[]');
+            const denominators = document.getElementsByName('denominator[]');
+            let resultText = '';
+
+            let commonDenominator = 1;
+            for (const denominator of denominators) {
+                if (denominator.value) {
+                    commonDenominator *= parseInt(denominator.value);
+                }
             }
-        }
 
-        let sumNumerator = 0;
-        for (let i = 0; i < numerators.length; i++) {
-            if (numerators[i].value) {
-                const numerator = parseInt(numerators[i].value);
-                sumNumerator += numerator * (commonDenominator / parseInt(denominators[i].value));
-                resultText += `${numerator}/${denominators[i].value}<br>`;
+            let sumNumerator = 0;
+            for (let i = 0; i < numerators.length; i++) {
+                if (numerators[i].value) {
+                    const numerator = parseInt(numerators[i].value);
+                    sumNumerator += numerator * (commonDenominator / parseInt(denominators[i].value));
+                    resultText += ` + ${numerator}/${denominators[i].value}`;
+                }
             }
-        }
 
-        if (sumNumerator > 0) {
-            resultText += '----------------------------------------<br>';
-            const simplifiedResult = simplifyFraction(sumNumerator, commonDenominator);
-            resultText += `${simplifiedResult.numerator}/${simplifiedResult.denominator}`;
-            document.getElementById('result-values').innerHTML = resultText;
-        } else {
-            document.getElementById('result-values').innerHTML = '';
-            document.getElementById('total').innerHTML = '';
-        }
-    });
+            if (sumNumerator > 0) {
+                const simplifiedResult = simplifyFraction(sumNumerator, commonDenominator);
+                resultText += ` = ${simplifiedResult.numerator}/${simplifiedResult.denominator}`;
+                document.getElementById('result-values').innerHTML = resultText;
+            } else {
+                document.getElementById('result-values').innerHTML = '';
+                document.getElementById('total').innerHTML = '';
+            }
+        });
 
     </script>
 @endsection

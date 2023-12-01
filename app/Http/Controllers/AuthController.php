@@ -26,8 +26,6 @@ class AuthController extends Controller
             'password' => bcrypt(request('password')),
         ]);
 
-        Auth::login($user);
-
         return redirect()->route('login')->with('successMessage','Your account is created');
     }
 

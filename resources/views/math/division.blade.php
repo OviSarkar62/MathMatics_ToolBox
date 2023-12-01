@@ -49,7 +49,7 @@ body {
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <h5>Division</h5>
+                    <h5>Division of Integer</h5>
                     <form id="division-form">
                         <div class="mb-3">
                             <label for="dividend" class="form-label">Dividend:</label>
@@ -98,11 +98,19 @@ body {
     });
 
     function formatDivisionOutput(dividend, divisor, quotient, remainder) {
-        return `${divisor})${dividend}(${quotient}<br>` +
-        ' '.repeat(`${divisor})${dividend}(${quotient}`.length) + `${divisor * quotient}<br>` +
-        ' '.repeat(`${divisor})${dividend}(${quotient}`.length) + '---------------------<br>' +
-        ' '.repeat(`${divisor})${dividend}(${quotient}`.length) + `${remainder}<br>`;
+        const divisionString = `${divisor})${dividend}(${quotient}`.length;
+        const lineLength = `${divisor})${dividend}`.length;
+        const divisorLength = `${divisor})`.length;
+        const multyplyLength = `${divisor * quotient}`.length;
+        const horizontalLine = '-'.repeat(divisionString+4) + '<br>';
+
+    return `${divisor})${dividend}(${quotient}<br>` +
+        '&nbsp;'.repeat(divisorLength+3) + `${divisor * quotient}<br>` +
+        horizontalLine +
+        '&nbsp;'.repeat(lineLength+3) + `${remainder}<br>`;
     }
+
+
 </script>
 
 @endsection

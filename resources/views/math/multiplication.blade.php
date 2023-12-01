@@ -62,7 +62,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Multiplication</h5>
+                        <h5>Multiplication of Integer</h5>
                         <form id="multiplication-form">
                             <div id="input-container">
                                 <input type="number" name="values[]" class="form-control mb-3" placeholder="Enter a number">
@@ -137,7 +137,8 @@
             }
 
             if (product !== 1) {
-                resultText += '----------------------------------------<br>';
+                const horizontalLine = '-'.repeat(resultText.length) + '<br>';
+                resultText += `${horizontalLine}`;
                 resultText += product;
                 document.getElementById('result-values').innerHTML = resultText;
             } else {
@@ -145,5 +146,6 @@
                 document.getElementById('total').innerHTML = '';
             }
         });
+
     </script>
 @endsection

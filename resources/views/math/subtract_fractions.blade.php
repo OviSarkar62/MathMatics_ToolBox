@@ -182,75 +182,65 @@
             };
         }
 
-        // Function to subtract fractions and simplify result as a mixed number
+        // Function to subtract fractions and simplify result as an improper fraction
         function subtractFractionsAndSimplify(numerator1, denominator1, numerator2, denominator2) {
+            // Check for undefined or missing values
+            if (isNaN(numerator1) || isNaN(denominator1) || isNaN(numerator2) || isNaN(denominator2)) {
+                return {
+                    numerator: 0,
+                    denominator: 1
+                };
+            }
+
             const commonDenominator = denominator1 * denominator2;
             const diffNumerator = numerator1 * denominator2 - numerator2 * denominator1;
 
-            const simplifiedResult = simplifyFraction(Math.abs(diffNumerator), commonDenominator);
+            const simplifiedResult = simplifyFraction(diffNumerator, commonDenominator);
 
-            // Calculate the whole number part
-            const wholeNumber = Math.floor(simplifiedResult.numerator / simplifiedResult.denominator);
-
-            // Calculate the remainder
-            const remainderNumerator = simplifiedResult.numerator % simplifiedResult.denominator;
-
-            return {
-                wholeNumber,
-                remainderNumerator,
-                denominator: simplifiedResult.denominator
-            };
+            return simplifiedResult;
         }
+
 
         // Calculate subtraction on form submit
         document.getElementById('subtraction-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const numerators = document.getElementsByName('numerator[]');
-            const denominators = document.getElementsByName('denominator[]');
+        event.preventDefault();
+        const numerators = document.getElementsByName('numerator[]');
+        const denominators = document.getElementsByName('denominator[]');
 
-            // Check if at least two fractions are provided
-            if (numerators.length < 2) {
-                document.getElementById('result-values').innerHTML = 'Please provide at least two fractions.';
-                return;
+        // Check if at least two fractions are provided
+        if (numerators.length < 2) {
+            document.getElementById('result-values').innerHTML = 'Please provide at least two fractions.';
+            return;
+        }
+
+        // Initialize with the numerator and denominator of the first fraction
+        let resultFraction = {
+            numerator: parseInt(numerators[0].value),
+            denominator: parseInt(denominators[0].value)
+        };
+
+        let inputText = formatFraction(resultFraction.numerator, resultFraction.denominator);
+
+        // Subtract each subsequent fraction from the initial one
+        for (let i = 1; i < numerators.length; i++) {
+            if (numerators[i].value) {
+                const numerator = parseInt(numerators[i].value);
+                const denominator = parseInt(denominators[i].value);
+                resultFraction = subtractFractionsAndSimplify(
+                    resultFraction.numerator,
+                    resultFraction.denominator,
+                    numerator,
+                    denominator
+                );
+
+                inputText += ` - ${formatFraction(numerator, denominator)}`;
             }
+        }
 
-            // Initialize with the numerator and denominator of the first fraction
-            let resultFraction = {
-                numerator: parseInt(numerators[0].value),
-                denominator: parseInt(denominators[0].value)
-            };
+        // Display the simplified result
+        const resultText = formatFraction(resultFraction.numerator, resultFraction.denominator);
+        document.getElementById('result-values').innerHTML = `${inputText} = ${resultText}`;
+    });
 
-            let inputText = formatFraction(resultFraction.numerator, resultFraction.denominator);
-
-            // Subtract each subsequent fraction from the initial one
-            for (let i = 1; i < numerators.length; i++) {
-                if (numerators[i].value) {
-                    const numerator = parseInt(numerators[i].value);
-                    const denominator = parseInt(denominators[i].value);
-                    resultFraction = subtractFractionsAndSimplify(
-                        resultFraction.numerator,
-                        resultFraction.denominator,
-                        numerator,
-                        denominator
-                    );
-
-                    inputText += ` - ${formatFraction(numerator, denominator)}`;
-                }
-            }
-
-            let resultText = '';
-
-            if (resultFraction.wholeNumber !== 0) {
-                resultText += `${resultFraction.wholeNumber}`;
-
-                if (resultFraction.remainderNumerator !== 0) {
-                    resultText += ` ${resultFraction.remainderNumerator}/${resultFraction.denominator}`;
-                }
-            } else {
-                resultText = `${resultFraction.remainderNumerator}/${resultFraction.denominator}`;
-            }
-
-            document.getElementById('result-values').innerHTML = `${inputText} = ${resultText}`;
-        });
     </script>
 @endsection

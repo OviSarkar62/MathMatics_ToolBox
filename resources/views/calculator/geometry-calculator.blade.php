@@ -51,7 +51,7 @@
                         </div>
                         <button onclick="convertDegrees('radian')" class="btn btn-success">Convert to Radians</button>
                         <button onclick="convertDegrees('gradian')" class="btn btn-success">Convert to Gradians</button>
-                        <button onclick="resetDegrees()" class="btn btn-secondary">Reset</button>
+                        <button onclick="resetDegrees()" class="btn btn-danger">Reset</button>
                         <p id="converted-result-degrees" class="mt-2"></p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         </div>
                         <button onclick="convertRadians('degree')" class="btn btn-success">Convert to Degrees</button>
                         <button onclick="convertRadians('gradian')" class="btn btn-success">Convert to Gradians</button>
-                        <button onclick="resetRadians()" class="btn btn-secondary">Reset</button>
+                        <button onclick="resetRadians()" class="btn btn-danger">Reset</button>
                         <p id="converted-result-radians" class="mt-2"></p>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </div>
                         <button onclick="convertGradians('degree')" class="btn btn-success">Convert to Degrees</button>
                         <button onclick="convertGradians('radian')" class="btn btn-success">Convert to Radians</button>
-                        <button onclick="resetGradians()" class="btn btn-secondary">Reset</button>
+                        <button onclick="resetGradians()" class="btn btn-danger">Reset</button>
                         <p id="converted-result-gradians" class="mt-2"></p>
                     </div>
                 </div>

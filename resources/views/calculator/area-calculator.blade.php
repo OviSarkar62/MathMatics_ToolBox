@@ -1,12 +1,6 @@
 @extends('layouts.app')
 <style>
 
-/* Add this style to your existing CSS file or create a new one */
-
-body {
-    font-family: 'Arial', sans-serif;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -97,13 +91,15 @@ body {
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Trapezoid Area Calculator</h5>
-                        <div class="mb-3">
-                            <label for="trapezoid-base1" class="form-label">Base 1:</label>
-                            <input type="number" id="trapezoid-base1" class="form-control" placeholder="Base 1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="trapezoid-base2" class="form-label">Base 2:</label>
-                            <input type="number" id="trapezoid-base2" class="form-control" placeholder="Base 2">
+                        <div class="mb-3 row">
+                            <div class="col-sm-6">
+                                <label for="trapezoid-base1" class="form-label">Base 1:</label>
+                                <input type="number" id="trapezoid-base1" class="form-control" placeholder="Base 1">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="trapezoid-base2" class="form-label">Base 2:</label>
+                                <input type="number" id="trapezoid-base2" class="form-control" placeholder="Base 2">
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="trapezoid-height" class="form-label">Height:</label>
@@ -118,18 +114,22 @@ body {
         </div>
 
         <div class="row">
-            <!-- Circle Card -->
+            <!-- Parallelogram Card -->
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Circle Area Calculator</h5>
+                        <h5 class="card-title">Parallelogram Area Calculator</h5>
                         <div class="mb-3">
-                            <label for="circle-radius" class="form-label">Radius:</label>
-                            <input type="number" id="circle-radius" class="form-control" placeholder="Radius">
+                            <label for="parallelogram-base" class="form-label">Base:</label>
+                            <input type="number" id="parallelogram-base" class="form-control" placeholder="Base">
                         </div>
-                        <button onclick="resetForm('circle')" class="btn btn-danger">Reset</button>
-                        <button onclick="calculateArea('circle')" class="btn btn-success">Calculate</button>
-                        <p id="circle-area" class="mt-2"></p>
+                        <div class="mb-3">
+                            <label for="parallelogram-height" class="form-label">Height:</label>
+                            <input type="number" id="parallelogram-height" class="form-control" placeholder="Height">
+                        </div>
+                        <button onclick="resetForm('parallelogram')" class="btn btn-danger">Reset</button>
+                        <button onclick="calculateArea('parallelogram')" class="btn btn-success">Calculate</button>
+                        <p id="parallelogram-area" class="mt-2"></p>
                     </div>
                 </div>
             </div>
@@ -154,25 +154,27 @@ body {
                 </div>
             </div>
 
-            <!-- Parallelogram Card -->
+            <!-- Circle Card -->
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Parallelogram Area Calculator</h5>
+                        <h5 class="card-title">Circle Area Calculator</h5>
                         <div class="mb-3">
-                            <label for="parallelogram-base" class="form-label">Base:</label>
-                            <input type="number" id="parallelogram-base" class="form-control" placeholder="Base">
+                            <label for="circle-radius" class="form-label">Pi</label>
+                            <input type="number" disabled id="circle-radius" class="form-control" placeholder="3.14159...">
                         </div>
                         <div class="mb-3">
-                            <label for="parallelogram-height" class="form-label">Height:</label>
-                            <input type="number" id="parallelogram-height" class="form-control" placeholder="Height">
+                            <label for="circle-radius" class="form-label">Radius:</label>
+                            <input type="number" id="circle-radius" class="form-control" placeholder="Radius">
                         </div>
-                        <button onclick="resetForm('parallelogram')" class="btn btn-danger">Reset</button>
-                        <button onclick="calculateArea('parallelogram')" class="btn btn-success">Calculate</button>
-                        <p id="parallelogram-area" class="mt-2"></p>
+                        <button onclick="resetForm('circle')" class="btn btn-danger">Reset</button>
+                        <button onclick="calculateArea('circle')" class="btn btn-success">Calculate</button>
+                        <p id="circle-area" class="mt-2"></p>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 

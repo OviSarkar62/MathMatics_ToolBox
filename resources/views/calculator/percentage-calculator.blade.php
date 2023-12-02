@@ -65,7 +65,7 @@
                                 <h5>Percentage Calculator 1</h5>
                                 <form id="percentage-form-1">
                                     <div class="mb-3 row">
-                                        <label for="originalValue2" class="form-label">What is</label>
+                                        <label for="originalValue1" class="form-label">What is</label>
                                         <div class="col-sm-9 input-group">
                                             <input type="number" id="percent1" class="form-control"
                                                 placeholder="Enter Input">
@@ -74,6 +74,7 @@
                                     </div>
                                     <label for="originalValue2" class="form-label">of</label>
                                         <div class="mb-3 row">
+                                            <label for="originalValue1" class="col-sm-3 col-form-label"></label>
                                             <div class="col-sm-9 input-group">
                                                 <input type="number" id="value1" class="form-control"
                                                     placeholder="Enter Input">
@@ -95,15 +96,14 @@
                             <div class="card-body">
                                 <h5>Percentage Calculator 2</h5>
                                 <form id="percentage-form-2">
-                                    <div class="mb-3">
-                                    <label for="originalValue3" class="form-label">The value</label>
-                                        <label for="value2" class="col-sm-3 col-form-label"></label>
+                                    <div class="mb-3 row">
+                                    <label for="originalValue2" class="form-label">The value</label>
                                         <div class="col-sm-9 input-group">
                                             <input type="number" id="value2" class="form-control"
                                                 placeholder="Enter Input">
                                         </div>
                                     </div>
-                                    <label for="originalValue2" class="form-label">is the percent of</label>
+                                    <label for="originalValue2" class="form-label">is what percent of</label>
                                     <div class="mb-3 row">
                                         <label for="originalValue2" class="col-sm-3 col-form-label"></label>
                                         <div class="col-sm-9 input-group">

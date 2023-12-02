@@ -1,61 +1,56 @@
 @extends('layouts.app')
+
 <style>
-/* Add this style to your existing CSS file or create a new one */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Light background color */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.row {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; /* Make all cards have the same height */
-}
-
-.col-md-3 {
-    flex: 0 0 28%; /* Adjust width for larger screens */
-    max-width: 28%; /* Adjust width for larger screens */
-    margin: 15px; /* Adjust spacing between cards */
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-    width: 100%; /* Make all cards have the same width */
-    margin-top: 80px;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-    padding: 10px;
-}
-
-.form-label {
-    font-weight: bold;
-}
-
-.btn {
-    margin-top: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 767px) {
-    .col-md-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
     }
-}
 
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: stretch; /* Make all cards have the same height */
+    }
+
+    .col-md-3 {
+        flex: 0 0 28%; /* Adjust width for larger screens */
+        max-width: 28%; /* Adjust width for larger screens */
+        margin: 15px; /* Adjust spacing between cards */
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        width: 100%; /* Make all cards have the same width */
+        height: 100%; /* Set a fixed height for all cards */
+        margin-top: 80px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .col-md-3 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
 </style>
+
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -77,13 +72,13 @@ body {
                                             <span class="input-group-text">%</span>
                                         </div>
                                     </div>
-                                    <div class="mb-3 row">
-                                        <label for="originalValue2" class="form-label">of</label>
-                                        <div class="col-sm-9 input-group">
-                                            <input type="number" id="value1" class="form-control"
-                                                placeholder="Enter Input">
+                                    <label for="originalValue2" class="form-label">of</label>
+                                        <div class="mb-3 row">
+                                            <div class="col-sm-9 input-group">
+                                                <input type="number" id="value1" class="form-control"
+                                                    placeholder="Enter Input">
+                                            </div>
                                         </div>
-                                    </div>
                                     <p id="result1">Result: <span id="output1"></span></p>
                                     <div class="mt-3">
                                         <button type="button" id="reset1" class="btn btn-danger">Reset</button>
@@ -100,14 +95,15 @@ body {
                             <div class="card-body">
                                 <h5>Percentage Calculator 2</h5>
                                 <form id="percentage-form-2">
-                                    <div class="mb-3 row">
+                                    <div class="mb-3">
+                                    <label for="originalValue3" class="form-label">The value</label>
                                         <label for="value2" class="col-sm-3 col-form-label"></label>
                                         <div class="col-sm-9 input-group">
                                             <input type="number" id="value2" class="form-control"
                                                 placeholder="Enter Input">
                                         </div>
                                     </div>
-                                    <label for="originalValue2" class="form-label">is what percent of</label>
+                                    <label for="originalValue2" class="form-label">is the percent of</label>
                                     <div class="mb-3 row">
                                         <label for="originalValue2" class="col-sm-3 col-form-label"></label>
                                         <div class="col-sm-9 input-group">
@@ -135,7 +131,6 @@ body {
                                         <label for="originalValue3" class="form-label">Percentage
                                             increase/decrease from</label>
                                         <div class="mb-3 row">
-                                            <label for="originalValue3" class="col-sm-3 col-form-label"></label>
                                             <div class="col-sm-9 input-group">
                                                 <input type="number" id="originalValue3" class="form-control"
                                                     placeholder="Enter Input">

@@ -39,6 +39,8 @@
         font-weight: bold;
     }
 </style>
+
+
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -47,9 +49,9 @@
                     <div class="card-body">
                         <h5>Temperature Converter</h5>
                         <form id="temperature-form">
-                            <div class="mb-3">
-                                <label for="standard" class="form-label">Choose a temperature standard:</label>
-                                <select name="standard" id="standard" class="form-select">
+                            <div class="mb-3" id="convert-from-container">
+                                <label for="convert-from" class="form-label">Convert From:</label>
+                                <select name="convert-from" id="convert-from" class="form-select">
                                     <option value="celsius">Celsius</option>
                                     <option value="fahrenheit">Fahrenheit</option>
                                     <option value="kelvin">Kelvin</option>
@@ -60,10 +62,15 @@
                                 <input type="number" name="temperature" id="temperature" class="form-control"
                                     placeholder="Temperature">
                             </div>
-                            <div id="temperature-results">
-                                <p id="equivalent-celsius">Equivalent in Celsius:</p>
-                                <p id="equivalent-fahrenheit">Equivalent in Fahrenheit:</p>
-                                <p id="equivalent-kelvin">Equivalent in Kelvin:</p>
+                            <div class="mb-3" id="convert-to-container">
+                                <label for="convert-to" class="form-label">Convert To:</label>
+                                <select name="convert-to" id="convert-to" class="form-select">
+                                    <option value="celsius">Celsius</option>
+                                    <option value="fahrenheit">Fahrenheit</option>
+                                    <option value="kelvin">Kelvin</option>
+                                </select>
+                            </div>
+                            <div id="temperature-results" style="display: none;">
                             </div>
                             <div class="mt-3">
                                 <button type="button" id="reset" class="btn btn-danger">Reset</button>
@@ -75,45 +82,55 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        document.getElementById('reset').addEventListener('click', function() {
-            document.getElementById('temperature').value = ''; // Clear the input field
-            clearResults();
-        });
+        $(document).ready(function () {
+            $("#convert").on("click", function () {
+                var convertFrom = $("#convert-from").val();
+                var convertTo = $("#convert-to").val();
+                var temperature = parseFloat($("#temperature").val());
 
-        document.getElementById('convert').addEventListener('click', function() {
-            convertTemperature();
-        });
+                // Perform the temperature conversion calculation
+                var convertedCelsius, convertedFahrenheit, convertedKelvin;
 
-        function convertTemperature() {
-            const standard = document.getElementById('standard').value;
-            const temperature = parseFloat(document.getElementById('temperature').value);
-            const celsiusResult = document.getElementById('equivalent-celsius');
-            const fahrenheitResult = document.getElementById('equivalent-fahrenheit');
-            const kelvinResult = document.getElementById('equivalent-kelvin');
-
-            if (!isNaN(temperature)) {
-                if (standard === 'celsius') {
-                    celsiusResult.textContent = 'Equivalent in Celsius: ' + temperature.toFixed(2);
-                    fahrenheitResult.textContent = 'Equivalent in Fahrenheit: ' + (temperature * 9/5 + 32).toFixed(2);
-                    kelvinResult.textContent = 'Equivalent in Kelvin: ' + (temperature + 273.15).toFixed(2);
-                } else if (standard === 'fahrenheit') {
-                    celsiusResult.textContent = 'Equivalent in Celsius: ' + ((temperature - 32) * 5/9).toFixed(2);
-                    fahrenheitResult.textContent = 'Equivalent in Fahrenheit: ' + temperature.toFixed(2);
-                    kelvinResult.textContent = 'Equivalent in Kelvin: ' + ((temperature - 32) * 5/9 + 273.15).toFixed(2);
-                } else if (standard === 'kelvin') {
-                    celsiusResult.textContent = 'Equivalent in Celsius: ' + (temperature - 273.15).toFixed(2);
-                    fahrenheitResult.textContent = 'Equivalent in Fahrenheit: ' + ((temperature - 273.15) * 9/5 + 32).toFixed(2);
-                    kelvinResult.textContent = 'Equivalent in Kelvin: ' + temperature.toFixed(2);
+                switch (convertFrom) {
+                    case "celsius":
+                        convertedCelsius = temperature;
+                        break;
+                    case "fahrenheit":
+                        convertedCelsius = (temperature - 32) * (5 / 9);
+                        break;
+                    case "kelvin":
+                        convertedCelsius = temperature - 273.15;
+                        break;
                 }
-            }
-        }
 
-        function clearResults() {
-            document.getElementById('equivalent-celsius').textContent = 'Equivalent in Celsius:';
-            document.getElementById('equivalent-fahrenheit').textContent = 'Equivalent in Fahrenheit:';
-            document.getElementById('equivalent-kelvin').textContent = 'Equivalent in Kelvin:';
-        }
+                switch (convertTo) {
+                    case "celsius":
+                        $("#temperature-results").text("Equivalent in Celsius: " + convertedCelsius.toFixed(2));
+                        break;
+                    case "fahrenheit":
+                        convertedFahrenheit = (convertedCelsius * 9 / 5) + 32;
+                        $("#temperature-results").text("Equivalent in Fahrenheit: " + convertedFahrenheit.toFixed(2));
+                        break;
+                    case "kelvin":
+                        convertedKelvin = convertedCelsius + 273.15;
+                        $("#temperature-results").text("Equivalent in Kelvin: " + convertedKelvin.toFixed(2));
+                        break;
+                }
+
+                $("#temperature-results").show();
+            });
+
+            $("#reset").on("click", function () {
+                $("#temperature-results").hide().empty(); // Hide and clear the results
+                $("#convert-from, #convert-to").val('celsius'); // Reset dropdowns to default
+                $("#temperature").val(''); // Clear the input field
+            });
+        });
     </script>
 
 @endsection
+
+

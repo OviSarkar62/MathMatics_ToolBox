@@ -99,8 +99,6 @@
             // Reset input fields
             document.getElementById('pressure-converter-form').reset();
 
-            // Clear output
-            document.getElementById('result').innerHTML = '';
         }
 
     function convertPressure() {
@@ -423,12 +421,12 @@
     document.getElementById('result').innerHTML = `${pressureValue} ${fromUnit} is equal to ${result.toFixed(2)} ${toUnit}`;
     }
 
-
     // Event listener for the Convert button
     document.getElementById('convertBtn').addEventListener('click', convertPressure);
 
     // Event listener for the Reset button
     document.getElementById('reset').addEventListener('click', resetForm);
+
 
 </script>
 

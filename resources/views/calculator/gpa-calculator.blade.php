@@ -107,6 +107,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-danger reset-form">Reset</button>
                         <button type="button" class="btn btn-success calculate-gpa">Calculate GPA</button>
                     </form>
                     <hr>
@@ -121,22 +122,14 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
     $(document).ready(function () {
         // Add input field dynamically
-        $("#input-container").on("click", ".add-input", function () {
-            var newRow = $("#input-container .input-row:first").clone();
-            newRow.find("input").val("");
-            newRow.find("select").prop("selectedIndex", 0);
-            $("#input-container").append(newRow);
-        });
+        $("#input-container").on("click", ".add-input", addInputRow);
 
         // Delete input field
-        $("#input-container").on("click", ".delete-input", function () {
-            if ($("#input-container .input-row").length > 1) {
-                $(this).closest(".input-row").remove();
-            }
-        });
+        $("#input-container").on("click", ".delete-input", deleteInputRow);
 
         // Calculate GPA
         $(".calculate-gpa").on("click", function () {
@@ -144,7 +137,39 @@
             $("#gpa-result").text("GPA: " + gpaResult.toFixed(2));
         });
 
-        // Function to calculate GPA
+        function addInputRow() {
+            var newRow = $("#input-container .input-row:first").clone();
+            newRow.find("input").val("");
+            newRow.find("select").prop("selectedIndex", 0);
+            $("#input-container").append(newRow);
+
+            // Toggle visibility of buttons based on row count
+            toggleButtons();
+        }
+
+        function deleteInputRow() {
+            if ($("#input-container .input-row").length > 1) {
+                $(this).closest(".input-row").remove();
+            }
+
+            // Toggle visibility of buttons based on row count
+            toggleButtons();
+        }
+
+        function toggleButtons() {
+            var rows = $("#input-container .input-row");
+
+            // Hide Add button in all rows
+            rows.find(".add-input").hide();
+
+            // Show Delete button in all rows except the first one
+            rows.find(".delete-input").hide();
+            rows.not(":first").find(".delete-input").show();
+
+            // Show Add button in the last row
+            rows.last().find(".add-input").show();
+        }
+
         function calculateGPA() {
             var totalCredits = 0;
             var weightedSum = 0;
@@ -166,6 +191,14 @@
             var gpa = weightedSum / totalCredits;
             return gpa;
         }
+        // Reset form
+        $(".reset-form").on("click", function () {
+            $("#input-container .input-row").find("input, select").val("");
+            $("#gpa-result").empty();
+        });
     });
 </script>
+
+
+
 @endsection

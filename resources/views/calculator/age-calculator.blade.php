@@ -54,7 +54,7 @@
                             <!-- DOB Fields (Year, Month, Day) -->
                             <div class="col-md-4">
                                 <label for="dob-year" class="form-label">Year of Birth:</label>
-                                <input type="number" name="dob-year" id="dob-year" class="form-control" placeholder="Year" min="1800" max="2500">
+                                <input type="number" name="dob-year" id="dob-year" class="form-control" placeholder="Year" min="01" max="2500">
                             </div>
                             <div class="col-md-4">
                                 <label for="dob-month" class="form-label">Month of Birth:</label>
@@ -84,7 +84,7 @@
                             <!-- Age at the Date of Fields (Year, Month, Day) -->
                             <div class="col-md-4">
                                 <label for="at-year" class="form-label">Year at the Age of:</label>
-                                <input type="number" name="at-year" id="at-year" class="form-control" placeholder="Year" min="1800" max="2500">
+                                <input type="number" name="at-year" id="at-year" class="form-control" placeholder="Year" min="01" max="2500">
                             </div>
                             <div class="col-md-4">
                                 <label for="at-month" class="form-label">Month at the Age of:</label>
@@ -114,7 +114,7 @@
                             <p id="age-output">Age will be displayed here.</p>
                         </div>
                         <div class="mt-3">
-                            <button type="button" id="reset" class="btn btn-danger">Reset</button>
+                            <button type="button" id="reset" class="btn btn-danger" onclick="handleReset()">Reset</button>
                             <button type="button" id="calculate" class="btn btn-success">Calculate</button>
                         </div>
                     </form>
@@ -209,7 +209,9 @@ crossorigin="anonymous"></script>
         calculateButton.addEventListener('click', calculateAge);
 
         // Event listener for the reset button
-        resetButton.addEventListener('click', function() {
+        const resetButton = document.getElementById('reset');
+        resetButton.addEventListener('click', handleReset);
+        function handleReset() {
             // Reset form and result
             document.getElementById('age-calculator-form').reset();
             document.getElementById('age-output').textContent = 'Age will be displayed here.';
@@ -217,14 +219,7 @@ crossorigin="anonymous"></script>
             // Manually reset the day options
             populateDays(dobYearSelect.value, dobMonthSelect.value, document.getElementById('dob-day'));
             populateDays(atYearSelect.value, atMonthSelect.value, document.getElementById('at-day'));
-
-            // Manually reset the datepicker if you are using it
-            $('#datepicker').datepicker('setDate', null);
-
-            // Reset the Bootstrap Select dropdowns (if you are using them)
-            $('#dob-month, #dob-day, #at-month, #at-day').selectpicker('val', '');
-            $('#dob-month, #dob-day, #at-month, #at-day').selectpicker('refresh');
-        });
+        }
     });
     </script>
 @endsection

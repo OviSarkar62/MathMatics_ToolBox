@@ -1,11 +1,5 @@
 @extends('layouts.app')
 <style>
-    /* Add this style to your existing CSS file or create a new one */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Light background color */
-}
 
 .container {
     max-width: 600px;
@@ -72,7 +66,7 @@ body {
                             <label for="height" class="form-label">Enter Height:</label>
                             <input type="number" name="height" id="height" class="form-control" placeholder="Height">
                         </div>
-                        <div id="bmi-results">
+                        <div id="bmi-results" style="display: none;">
                             <p id="bmi-value" class="h3">BMI: </p>
                             <p id="bmi-classification" class="h3">Classification: </p>
                         </div>
@@ -168,6 +162,5 @@ body {
         }
     });
 </script>
-
 
 @endsection

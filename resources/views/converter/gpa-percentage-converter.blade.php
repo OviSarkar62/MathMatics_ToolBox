@@ -63,7 +63,8 @@
                         </div>
                         <button type="button" onclick="resetForm()" class="btn btn-danger">Reset</button>
                         <button type="button" onclick="convertGpa()" class="btn btn-success">Convert</button>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display:none;" id="percentageSection">
+                            <br>
                             <label for="percentage" class="form-label">Percentage:</label>
                             <span id="percentageDisplay"></span>
                         </div>
@@ -75,31 +76,37 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Function to reset the form
-        window.resetForm = function () {
-            document.getElementById("gpa-converter-form").reset();
-            document.getElementById("percentageDisplay").textContent = "";
-        };
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to reset the form
+    window.resetForm = function () {
+        document.getElementById("gpa-converter-form").reset();
+        document.getElementById("percentageDisplay").textContent = "";
+        // Hide the percentage section
+        document.getElementById("percentageSection").style.display = 'none';
+    };
 
-        // Function to convert GPA to Percentage
-        window.convertGpa = function () {
-            // Get values from form
-            var gradingScale = parseFloat(document.getElementById("gradingScale").value);
-            var gpa = parseFloat(document.getElementById("gpa").value);
+    // Function to convert GPA to Percentage
+    window.convertGpa = function () {
+        // Get values from form
+        var gradingScale = parseFloat(document.getElementById("gradingScale").value);
+        var gpa = parseFloat(document.getElementById("gpa").value);
 
-            console.log("Grading Scale:", gradingScale);
-            console.log("GPA:", gpa);
+        console.log("Grading Scale:", gradingScale);
+        console.log("GPA:", gpa);
 
-            // Convert GPA to Percentage
-            var percentage = gpa * 100 / gradingScale;
+        // Convert GPA to Percentage
+        var percentage = gpa * 100 / gradingScale;
 
-            console.log("Percentage:", percentage);
+        console.log("Percentage:", percentage);
 
-            // Display converted percentage
-            var percentageDisplay = document.getElementById("percentageDisplay");
-            percentageDisplay.textContent = "Percentage: " + percentage.toFixed(2) + "%";
-        };
-    });
+        // Display converted percentage
+        var percentageDisplay = document.getElementById("percentageDisplay");
+        percentageDisplay.textContent = percentage.toFixed(2) + "%";
+
+        // Show the percentage section
+        document.getElementById("percentageSection").style.display = 'block';
+    };
+});
+
 </script>
 @endsection

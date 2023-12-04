@@ -74,7 +74,8 @@
                         </div>
                         <button type="button" onclick="resetForm()" class="btn btn-danger">Reset</button>
                         <button type="button" onclick="calculateCompoundInterest()" class="btn btn-success">Calculate</button>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display:none;" id="compoundInterestSection">
+                            <br>
                             <label for="compoundInterest" class="form-label">Compound Interest:</label>
                             <span id="compoundInterestDisplay"></span>
                         </div>
@@ -87,35 +88,42 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Function to reset the form
-        window.resetForm = function () {
-            document.getElementById("compound-interest-form").reset();
-            document.getElementById("compoundInterestDisplay").textContent = "";
-        };
+    // Function to reset the form
+    window.resetForm = function () {
+        document.getElementById("compound-interest-form").reset();
+        document.getElementById("compoundInterestDisplay").textContent = "";
+        // Hide the compound interest section
+        document.getElementById("compoundInterestSection").style.display = 'none';
+    };
 
-        // Function to calculate compound interest
-        window.calculateCompoundInterest = function () {
-            // Get values from form
-            var principal = parseFloat(document.getElementById("principal").value);
-            var interestRate = parseFloat(document.getElementById("interestRate").value) / 100; // convert to decimal
-            var compoundingFrequency = parseInt(document.getElementById("compoundingFrequency").value);
-            var timePeriod = parseFloat(document.getElementById("timePeriod").value);
+    // Function to calculate compound interest
+    window.calculateCompoundInterest = function () {
+        // Get values from form
+        var principal = parseFloat(document.getElementById("principal").value);
+        var interestRate = parseFloat(document.getElementById("interestRate").value) / 100; // convert to decimal
+        var compoundingFrequency = parseInt(document.getElementById("compoundingFrequency").value);
+        var timePeriod = parseFloat(document.getElementById("timePeriod").value);
 
-            console.log("Principal:", principal);
-            console.log("Interest Rate:", interestRate);
-            console.log("Compounding Frequency:", compoundingFrequency);
-            console.log("Time Period:", timePeriod);
+        console.log("Principal:", principal);
+        console.log("Interest Rate:", interestRate);
+        console.log("Compounding Frequency:", compoundingFrequency);
+        console.log("Time Period:", timePeriod);
 
-            // Calculate compound interest
-            var compoundInterest = principal * Math.pow(1 + interestRate / compoundingFrequency, compoundingFrequency * timePeriod) - principal;
+        // Calculate compound interest
+        var compoundInterest = principal * Math.pow(1 + interestRate / compoundingFrequency, compoundingFrequency * timePeriod) - principal;
 
-            console.log("Compound Interest:", compoundInterest);
+        console.log("Compound Interest:", compoundInterest);
 
-            // Display calculated compound interest
-            var compoundInterestDisplay = document.getElementById("compoundInterestDisplay");
-            compoundInterestDisplay.textContent = "Compound Interest: $" + compoundInterest.toFixed(2);
-        };
-    });
+        // Display calculated compound interest
+        var compoundInterestDisplay = document.getElementById("compoundInterestDisplay");
+        compoundInterestDisplay.textContent = compoundInterest.toFixed(2);
+
+        // Show the compound interest section
+        document.getElementById("compoundInterestSection").style.display = 'block';
+    };
+});
+
+
 </script>
 
 @endsection

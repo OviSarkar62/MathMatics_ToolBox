@@ -47,7 +47,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <h5>Unit Converter</h5>
+                    <h5>Metric to Imperial Converter</h5>
                     <form id="unit-converter-form">
                         <div class="mb-3">
                             <label for="conversionType" class="form-label">Conversion Type:</label>
@@ -81,7 +81,8 @@
                         </div>
                         <button type="button" onclick="resetForm()" class="btn btn-danger">Reset</button>
                         <button type="button" onclick="convertUnits()" class="btn btn-success">Convert</button>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display:none;" id="convertedValueSection">
+                            <br>
                             <label for="convertedValue" class="form-label">Converted Value:</label>
                             <span id="convertedValueDisplay"></span>
                         </div>
@@ -94,54 +95,66 @@
 
 <script>
     function convertUnits() {
-        // Get user input
-        const conversionType = document.getElementById('conversionType').value;
-        const lengthValue = parseFloat(document.getElementById('lengthValue').value);
-        const unitFrom = document.getElementById('unitFrom').value;
-        const unitTo = document.getElementById('unitTo').value;
+    // Get user input
+    const conversionType = document.getElementById('conversionType').value;
+    const lengthValue = parseFloat(document.getElementById('lengthValue').value);
+    const unitFrom = document.getElementById('unitFrom').value;
+    const unitTo = document.getElementById('unitTo').value;
 
-        // Define conversion factors to meters
-        const unitToMeters = {
-            'mm': 0.001,
-            'cm': 0.01,
-            'dm': 0.1,
-            'm': 1,
-            'km': 1000,
-            'in': 0.0254,
-            'ft': 0.3048,
-            'yd': 0.9144,
-            'mi': 1609.34
-        };
+    // Define conversion factors to meters
+    const unitToMeters = {
+        'mm': 0.001,
+        'cm': 0.01,
+        'dm': 0.1,
+        'm': 1,
+        'km': 1000,
+        'in': 0.0254,
+        'ft': 0.3048,
+        'yd': 0.9144,
+        'mi': 1609.34
+    };
 
-        // Convert both units to meters
-        const lengthValueInMeters = lengthValue * unitToMeters[unitFrom];
-        const convertedValue = lengthValueInMeters / unitToMeters[unitTo];
+    // Convert both units to meters
+    const lengthValueInMeters = lengthValue * unitToMeters[unitFrom];
+    const convertedValue = lengthValueInMeters / unitToMeters[unitTo];
 
-        // Display the result
-        if (!isNaN(convertedValue)) {
-            document.getElementById('convertedValueDisplay').textContent = convertedValue.toFixed(2);
-        } else {
-            document.getElementById('convertedValueDisplay').textContent = 'Invalid conversion';
-        }
+    // Display the result
+    const convertedValueSection = document.getElementById('convertedValueSection');
+    if (!isNaN(convertedValue)) {
+        document.getElementById('convertedValueDisplay').textContent = convertedValue.toFixed(2);
+        convertedValueSection.style.display = 'block';
+    } else {
+        document.getElementById('convertedValueDisplay').textContent = 'Invalid conversion';
+        convertedValueSection.style.display = 'none';
     }
+}
 
-    function resetForm() {
-        // Reset form values
-        document.getElementById('unit-converter-form').reset();
-        // Clear the converted value display
-        document.getElementById('convertedValueDisplay').textContent = '';
-    }
+function resetForm() {
+    // Reset form values
+    document.getElementById('unit-converter-form').reset();
+    // Clear the converted value display and hide the section
+    document.getElementById('convertedValueDisplay').textContent = '';
+    document.getElementById('convertedValueSection').style.display = 'none';
 
-    // Swap options when conversion type changes
-    document.getElementById('conversionType').addEventListener('change', function () {
-        const unitFrom = document.getElementById('unitFrom');
-        const unitTo = document.getElementById('unitTo');
+    // Ensure options are swapped back to the original order
+    const unitFrom = document.getElementById('unitFrom');
+    const unitTo = document.getElementById('unitTo');
+    const tempOptions = unitFrom.innerHTML;
+    unitFrom.innerHTML = unitTo.innerHTML;
+    unitTo.innerHTML = tempOptions;
+}
 
-        // Swap options
-        const tempOptions = unitFrom.innerHTML;
-        unitFrom.innerHTML = unitTo.innerHTML;
-        unitTo.innerHTML = tempOptions;
-    });
+// Swap options when conversion type changes
+document.getElementById('conversionType').addEventListener('change', function () {
+    const unitFrom = document.getElementById('unitFrom');
+    const unitTo = document.getElementById('unitTo');
+
+    // Swap options
+    const tempOptions = unitFrom.innerHTML;
+    unitFrom.innerHTML = unitTo.innerHTML;
+    unitTo.innerHTML = tempOptions;
+});
+
 </script>
 
 @endsection

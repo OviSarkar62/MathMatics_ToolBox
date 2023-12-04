@@ -69,7 +69,7 @@
                         </div>
                         <button type="button" onclick="resetEnergyForm()" class="btn btn-danger">Reset</button>
                         <button type="button" onclick="convertEnergy()" class="btn btn-success">Convert</button>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display:none;" id="conversionResultSection">
                             <br>
                             <label for="conversionResult" class="form-label">Conversion Result:</label>
                             <span id="conversionResultDisplay"></span>
@@ -82,15 +82,22 @@
 </div>
 
 <script>
-    function resetEnergyForm() {
+        function resetEnergyForm() {
         document.getElementById('energyValue').value = '';
         document.getElementById('fromUnit').value = 'calories';
         document.getElementById('toUnit').value = 'joules';
+        document.getElementById('conversionResultSection').style.display = 'none';
         document.getElementById('conversionResultDisplay').innerText = '';
     }
 
     function convertEnergy() {
         var energyValue = parseFloat(document.getElementById('energyValue').value);
+
+        if (isNaN(energyValue)) {
+            alert('Please enter a valid number for energy value');
+            return;
+        }
+
         var fromUnit = document.getElementById('fromUnit').value;
         var toUnit = document.getElementById('toUnit').value;
         var conversionResult;
@@ -100,14 +107,15 @@
         } else if (fromUnit === 'joules' && toUnit === 'calories') {
             conversionResult = energyValue / 4.184; // 1 joule = 0.239005736 calories
         } else {
-            // Handle other unit conversions if needed
             alert('Invalid conversion');
             return;
         }
 
         // Display result up to 4 decimal places
         document.getElementById('conversionResultDisplay').innerText = conversionResult.toFixed(4);
+        document.getElementById('conversionResultSection').style.display = 'block';
     }
+
 </script>
 
 @endsection

@@ -80,9 +80,10 @@
                         </div>
                         <button type="button" onclick="resetForm()" class="btn btn-danger">Reset</button>
                         <button type="button" onclick="convertTime()" class="btn btn-success">Convert</button>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display:none;" id="convertedTimeSection">
+                            <br>
                             <label for="convertedTime" class="form-label">Converted Time:</label>
-                            <span id="convertedTimeDisplay"> </span>
+                            <span id="convertedTimeDisplay"></span>
                         </div>
                     </form>
                 </div>
@@ -108,6 +109,8 @@
         window.resetForm = function () {
             document.getElementById("time-zone-converter-form").reset();
             document.getElementById("convertedTimeDisplay").textContent = "";
+            // Hide the converted time section
+            document.getElementById("convertedTimeSection").style.display = 'none';
         };
 
         // Function to convert time
@@ -137,6 +140,9 @@
             // Display converted time
             var convertedTimeElement = document.getElementById("convertedTimeDisplay");
             convertedTimeElement.textContent = "Converted Time: " + convertedDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            // Show the converted time section
+            document.getElementById("convertedTimeSection").style.display = 'block';
         };
     });
 </script>

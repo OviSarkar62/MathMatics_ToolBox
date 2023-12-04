@@ -44,7 +44,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Degree Converter</h5>
+                        <h5 class="card-title">Degree Calculator</h5>
                         <div class="mb-3">
                             <label for="angle-degrees" class="form-label">Degrees:</label>
                             <input type="number" id="angle-degrees" class="form-control" placeholder="Degrees">
@@ -61,7 +61,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Radian Converter</h5>
+                        <h5 class="card-title">Radian Calculator</h5>
                         <div class="mb-3">
                             <label for="angle-radians" class="form-label">Radians:</label>
                             <input type="number" id="angle-radians" class="form-control" placeholder="Radians">
@@ -78,7 +78,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Gradian Converter</h5>
+                        <h5 class="card-title">Gradian Calculator</h5>
                         <div class="mb-3">
                             <label for="angle-gradians" class="form-label">Gradians:</label>
                             <input type="number" id="angle-gradians" class="form-control" placeholder="Gradians">

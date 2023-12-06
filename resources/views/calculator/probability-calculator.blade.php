@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 <style>
-    /* Add this style to your existing CSS file or create a new one */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Light background color */
-}
 
 .container {
     max-width: 800px;

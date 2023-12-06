@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <ul>
-                                        <li><a href="{{ route('metric-imperial-converter.index') }}">Metric to Imperial</a></li>
+                                        <li><a href="{{ route('metric-imperial-converter.index') }}">Metric to Imperial Converter</a></li>
                                         <li><a href="{{ route('time-zone-converter.index') }}">Time Zone Converter</a></li>
                                         <li><a href="{{ route('gpa-percentage-converter.index') }}">GPA Percentage Converter</a></li>
                                         <li><a href="{{ route('interest-rate-converter.index') }}">Interest Rate Converter</a></li>

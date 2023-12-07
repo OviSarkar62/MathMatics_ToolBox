@@ -70,12 +70,7 @@
                 <div class="alert alert-danger">{{ Session::get('error') }}</div>
             @endif
 
-            <div class="card mb-4" style="margin-top: 90px;">
-                <div class="card-body">
-                    <h5 style="text-transform: uppercase;">Welcome, {{ auth()->user()->name }}! Use MathMagic ToolBox</h5>
-                </div>
-            </div>
-
+            <div style="margin-top: 110px;"></div>
                 <div class="card-body">
                     <div class="card mb-4 animated-card-arithmetic">
                         <div class="card-body">
@@ -83,14 +78,10 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul>
-                                        {{-- <li><a href="{{ route('addition.index') }}" data-preview="{{ asset('assets/images/addition1.png') }}" onmouseover="showThumbnail(this)" onmouseout="hideThumbnail()">Addition</a></li> --}}
                                         <li><a href="{{ route('addition.index') }}">Add Integer</a></li>
                                         <li><a href="{{ route('subtraction.index') }}">Subtract Integer</a></li>
                                         <li><a href="{{ route('multiplication.index') }}">Multiply Integer</a></li>
                                         <li><a href="{{ route('division.index') }}">Divide Integer</a></li>
-                                        {{-- <li><a href="{{ route('lcm.index') }}">LCM</a></li>
-                                        <li><a href="{{ route('hcf.index') }}">HCF</a></li>
-                                        <li><a href="{{ route('bodmas.index') }}">BODMAS</a></li> --}}
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
@@ -179,29 +170,4 @@
             </div>
         </div>
 
-{{--
-    <script>
-        function showThumbnail(element) {
-            // Get the preview path from data-preview attribute
-            var previewPath = element.getAttribute('data-preview');
-
-            // Get the position of the hovered link
-            var linkRect = element.getBoundingClientRect();
-
-            // Get the thumbnail container and update its content
-            var thumbnailContainer = document.getElementById('thumbnailContainer');
-            thumbnailContainer.innerHTML = `<img src="${previewPath}" alt="Preview Thumbnail">`;
-
-            // Set the position of the thumbnail container
-            thumbnailContainer.style.display = 'block';
-            thumbnailContainer.style.top = `${linkRect.top}px`; // Adjust the positioning as needed
-            thumbnailContainer.style.left = `${linkRect.right}px`;
-        }
-
-        function hideThumbnail() {
-            // Hide the thumbnail container
-            var thumbnailContainer = document.getElementById('thumbnailContainer');
-            thumbnailContainer.style.display = 'none';
-        }
-    </script> --}}
 @endsection

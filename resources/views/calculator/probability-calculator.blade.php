@@ -55,7 +55,7 @@
                             <input type="number" step="0.01" min="0" max="1" name="probB" id="probB" class="form-control" placeholder="Probability for B">
                         </div>
                         <div id="probability-results">
-                            <p id="result" class="h5">Result: </p>
+                            <p id="result" class="h6">Result: </p>
                             <p id="resultNotA" class="h6">Probability of A NOT occurring: </p>
                             <p id="resultNotB" class="h6">Probability of B NOT occurring: </p>
                             <p id="resultAnd" class="h6">Probability of A and B both occurring: </p>

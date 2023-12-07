@@ -26,6 +26,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // User Dashboard
 Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
 
+Route::middleware(['auth'])->group(function () {
 // Calculate Maths Routes
 Route::get('/addition', [MathController::class, 'addition'])->name('addition.index');
 Route::get('/subtraction', [MathController::class, 'subtraction'])->name('subtraction.index');
@@ -74,3 +75,4 @@ Route::get('/decimal-converter', [ConverterController::class, 'decimalConverter'
 Route::get('/octal-converter', [ConverterController::class, 'octalConverter'])->name('octal-converter.index');
 Route::get('/hexadecimal-converter', [ConverterController::class, 'hexadecimalConverter'])->name('hexadecimal-converter.index');
 
+});

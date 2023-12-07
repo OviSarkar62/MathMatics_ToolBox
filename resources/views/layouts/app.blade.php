@@ -88,7 +88,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top">MathMagic ToolBox</a>
+            <a class="navbar-brand" href="{{ route('user.dashboard') }}">MathMagic ToolBox</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -102,8 +102,6 @@
                             href="{{ route('create.user') }}">Register</a></li>
                     @endif
                     @if(Auth::check())
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="{{ route('user.dashboard') }}">Dashboard</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="{{ route('logout') }}">Logout</a></li>
                     @endif

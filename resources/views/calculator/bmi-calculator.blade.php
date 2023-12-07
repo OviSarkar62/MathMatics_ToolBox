@@ -67,8 +67,8 @@
                             <input type="number" name="height" id="height" class="form-control" placeholder="Height">
                         </div>
                         <div id="bmi-results" style="display: none;">
-                            <p id="bmi-value" class="h3">BMI: </p>
-                            <p id="bmi-classification" class="h3">Classification: </p>
+                            <p id="bmi-value" class="h6">BMI: </p>
+                            <p id="bmi-classification" class="h6">Classification: </p>
                         </div>
                         <div class="mt-3">
                             <button type="reset" id="reset" class="btn btn-danger">Reset</button>

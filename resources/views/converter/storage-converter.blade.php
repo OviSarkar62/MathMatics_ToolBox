@@ -87,7 +87,7 @@
                         <button type="button" onclick="convertDataStorage()" class="btn btn-success">Convert</button>
                         <div class="mb-3">
                             <br>
-                            <label for="conversionResult" class="form-label">Conversion Result:</label>
+                            <label for="conversionResult" class="form-label"></label>
                             <span id="conversionResultDisplay"></span>
                         </div>
                     </form>
@@ -183,7 +183,7 @@
         }
 
         // Display result up to 4 decimal places
-        document.getElementById('conversionResultDisplay').innerText = conversionResult.toFixed(4);
+        document.getElementById('conversionResultDisplay').innerText = "Conversion Result: " + conversionResult.toFixed(4);
     }
 </script>
 @endsection

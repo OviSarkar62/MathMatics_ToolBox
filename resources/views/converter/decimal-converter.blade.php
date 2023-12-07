@@ -44,7 +44,7 @@
     }
 
     #binary-value {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 </style>
 @section('content')
@@ -69,7 +69,7 @@
                             <p id="validation-error" style="color: red;"></p>
                         </div>
                         <div id="decimal-result" style="display: none;">
-                            <h3 id="decimal-value">Decimal: </h3>
+                            <h6 id="decimal-value">Decimal: </h6>
                         </div>
                         <div class="mt-3">
                             <button type="reset" id="reset" class="btn btn-danger">Reset</button>

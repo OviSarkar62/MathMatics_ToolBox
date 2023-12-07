@@ -95,11 +95,15 @@
 <script>
 
 
-    function resetForm() {
-            // Reset input fields
-            document.getElementById('pressure-converter-form').reset();
+function resetForm() {
+    // Reset input fields
+    document.getElementById('pressure').value = '';
+    document.getElementById('fromUnit').value = 'Pa';
+    document.getElementById('toUnit').value = 'Pa';
 
-        }
+    // Clear the result output
+    document.getElementById('result').innerHTML = '';
+}
 
     function convertPressure() {
         var pressureValue = parseFloat(document.getElementById('pressure').value);
@@ -418,7 +422,7 @@
         }
     }
 
-    document.getElementById('result').innerHTML = `${pressureValue} ${fromUnit} is equal to ${result.toFixed(2)} ${toUnit}`;
+    document.getElementById('result').innerHTML = `Conversion Result: ${result.toFixed(2)} ${toUnit}`;
     }
 
     // Event listener for the Convert button

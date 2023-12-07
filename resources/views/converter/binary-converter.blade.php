@@ -45,7 +45,7 @@
     }
 
     #binary-value {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 </style>
 
@@ -71,7 +71,7 @@
                             <p id="validation-error" style="color: red;"></p>
                         </div>
                         <div id="binary-result" style="display: none;">
-                            <h3 id="binary-value">Binary: </h3>
+                            <h6 id="binary-value">Binary: </h6>
                         </div>
                         <div class="mt-3">
                             <button type="reset" id="reset" class="btn btn-danger">Reset</button>

@@ -1,65 +1,74 @@
 @extends('layouts.app')
 <style>
-/* Card Style */
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    transition: box-shadow 0.3s ease;
-    margin-top: 80px;
-}
 
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Form Style */
-#addition-form {
-    margin-top: 20px;
-}
-
-/* Input Style */
-.form-control {
-    border-radius: 0.25rem;
-}
-
-/* Button Styles */
-.btn {
-    border-radius: 0.25rem;
-}
-
-/* Result Section Styles */
-#result {
-    margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 576px) {
-    .card {
-        margin-top: 20px;
+    body {
+        /* Left bottom corner SVG */
+        background-image: url('/assets/img/multiply1.svg');
+        background-repeat: no-repeat, no-repeat;
+        background-position: left bottom, right bottom;
+        background-size: auto, auto; /* Adjust this based on your SVG sizes */
+        height: 20vh;
     }
-}
 
-@media (max-width: 768px) {
     .card {
-        margin-top: 40px;
-    }
-}
-
-@media (max-width: 992px) {
-    .card {
-        margin-top: 60px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        transition: box-shadow 0.3s ease;
         margin-top: 80px;
     }
-}
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form Style */
+    #addition-form {
+        margin-top: 20px;
+    }
+
+    /* Input Style */
+    .form-control {
+        border-radius: 0.25rem;
+    }
+
+    /* Button Styles */
+    .btn {
+        border-radius: 0.25rem;
+    }
+
+    /* Result Section Styles */
+    #result {
+        margin-top: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 576px) {
+        .card {
+            margin-top: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            margin-top: 40px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .card {
+            margin-top: 60px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .card {
+            margin-top: 80px;
+        }
+    }
 </style>
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <h5>Multiplication of Integer</h5>

@@ -1,47 +1,54 @@
 @extends('layouts.app')
 <style>
-/* Add this style to your existing CSS file or create a new one */
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    transition: box-shadow 0.3s ease;
-    margin-top: 80px;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.form-label {
-    font-weight: bold;
-}
-
-.btn {
-    margin-top: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 767px) {
-    .card {
-        margin-top: 20px;
+    /* Add this style to your existing CSS file or create a new one */
+    body {
+        /* Left bottom corner SVG */
+        background-image: url('/assets/img/division1.svg');
+        background-repeat: no-repeat, no-repeat;
+        background-position: left bottom, right bottom;
+        background-size: auto, auto; /* Adjust this based on your SVG sizes */
+        height: 20vh;
     }
-}
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        transition: box-shadow 0.3s ease;
+        margin-top: 80px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .card {
+            margin-top: 20px;
+        }
+    }
 
 </style>
 
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <h5>Division of Integer</h5>

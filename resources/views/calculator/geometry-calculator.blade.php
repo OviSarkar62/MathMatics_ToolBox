@@ -1,6 +1,14 @@
 @extends('layouts.app')
 <style>
 /* Add this style to your existing CSS file or create a new one */
+body {
+    /* Left bottom corner SVG */
+    background-image: url('/assets/img/geometry1.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right bottom;
+    background-size: auto, auto; /* Adjust this based on your SVG sizes */
+    height: 20vh;
+}
 
 .container {
     max-width: 1200px;

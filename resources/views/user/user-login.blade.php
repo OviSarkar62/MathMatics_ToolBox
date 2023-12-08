@@ -1,10 +1,19 @@
 @extends('layouts.app')
+<style>
+    body {
+            /* Left bottom corner SVG */
+            background-image: url('/assets/img/log1.svg');
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background-size: auto; /* Adjust this based on your SVG sizes */
+            height: 20vh;
+        }
+</style>
 
 @section('content')
-
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-6 offset-md-6 mt-5 mb-5">
             <div class="card shadow-lg" style="margin-top: 80px;height: 340px;border: 1px solid #1abc9c;">
                 <div class="card-header" style="background-color: #2c3e50; color: #fff;">
                     <h4 class="mb-0">Login</h4>

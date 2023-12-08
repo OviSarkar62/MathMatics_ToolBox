@@ -2,46 +2,55 @@
 
 <style>
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    transition: box-shadow 0.3s ease;
-    margin-top: 80px;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.form-label {
-    font-weight: bold;
-}
-
-.btn {
-    margin-top: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 767px) {
-    .col-md-6 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    body {
+    /* Left bottom corner SVG */
+    background-image: url('/assets/img/pro1.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right bottom;
+    background-size: auto, auto; /* Adjust this based on your SVG sizes */
+    height: 20vh;
     }
-}
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        transition: box-shadow 0.3s ease;
+        margin-top: 80px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .col-md-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
 </style>
 @section('content')
 <!-- HTML Code -->
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <h5>Probability Calculator</h5>

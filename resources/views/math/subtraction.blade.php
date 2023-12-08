@@ -2,7 +2,15 @@
 
 <style>
 
-/* Card Style */
+body {
+     /* Left bottom corner SVG */
+    background-image: url('/assets/img/calculator2.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right bottom;
+    background-size: auto, auto; /* Adjust this based on your SVG sizes */
+    height: 20vh;
+}
+
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     transition: box-shadow 0.3s ease;
@@ -61,7 +69,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <h5>Subtraction of Integer</h5>

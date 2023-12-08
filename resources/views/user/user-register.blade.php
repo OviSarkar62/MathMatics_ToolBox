@@ -1,13 +1,30 @@
 @extends('layouts.app')
 <style>
     body {
-            /* Left bottom corner SVG */
-            background-image: url('/assets/img/regg1.svg');
-            background-repeat: no-repeat;
-            background-position: left bottom;
-            background-size: auto;
-            height: 20vh;
+        background-image: url('/assets/img/regg1.svg');
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: auto;
+        height: 20vh;
+    }
+
+    #card {
+        margin-top: 30px;
+        height: 420px;
+        border: 1px solid #1abc9c;
+    }
+
+    @media (max-width: 767px) {
+        /* Styles for screens smaller than 768px (e.g., mobile phones) */
+        #card {
+            margin-top: 15px;
+            height: auto; /* Adjust height as needed for mobile devices */
         }
+
+        body {
+            background: none; /* Remove background styling for smaller screens */
+        }
+    }
 </style>
 
 @section('content')
@@ -17,7 +34,7 @@
         <div class="col-md-6 mt-5 mb-5">
             <div class="card shadow-lg" id="card" style="margin-top: 30px;height: 420px; border: 1px solid #1abc9c;">
                 <div class="card-header" style="background-color: #2c3e50; color: #fff;">
-                    <h4 class="mb-0">Register</h4>
+                    <h6 class="mb-0">Register</h6>
                 </div>
                 <form action="{{ route('store.user') }}" method="post" id="registrationForm" class="p-4">
                     @csrf
@@ -46,10 +63,10 @@
                                 <span class="text-danger">{{ $errors->first('password')}}</span>
                             @endif
                         </div>
-                        <div class="form-group mb-5 mt-3">
+                        <div class="form-group text-center">
                             <button class="btn btn-primary" id="btnRegister" type="submit">Register</button>
                         </div>
-                        <div class="text-center" style="margin-top: -40px;">
+                        <div class="text-center" style="margin-top: 5px;">
                             <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>
                         </div>
                     </div>

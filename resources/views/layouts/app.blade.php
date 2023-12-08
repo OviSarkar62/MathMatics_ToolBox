@@ -21,29 +21,6 @@
     <link href="css/styles.css" rel="stylesheet" />
     <style>
         /* Custom styles for the compact navbar */
-        .navbar {
-            padding: 0.5rem 0.5rem; /* Adjust padding to make it more compact */
-            background-color: #343a40; /* Change background color */
-        }
-
-        .navbar-brand {
-            font-size: 1.5rem; /* Adjust font size of the brand */
-            color: #fff; /* Set text color */
-        }
-
-        .navbar-toggler {
-            border: none; /* Remove border from the toggle button */
-        }
-
-        .navbar-toggler-icon {
-            background-color: #fff; /* Set color of the toggle icon */
-        }
-
-        .navbar-nav .nav-link {
-            padding: 0.5rem 1rem; /* Adjust padding of the nav links */
-            color: #fff; /* Set text color */
-        }
-
         .navbar-nav .nav-link:hover {
             color: #007bff; /* Set hover color for the nav links */
         }

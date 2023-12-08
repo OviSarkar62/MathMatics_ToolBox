@@ -16,7 +16,7 @@
         transition: box-shadow 0.3s ease;
         flex: 1; /* Make each card take up equal width */
         margin-right: 15px; /* Adjust margin for spacing between cards */
-        margin-top: 100px;
+        margin-top: 55px;
     }
 
     .card:hover {
@@ -36,12 +36,23 @@
     }
 
     @media (max-width: 767px) {
-        .col-md-4 {
-            flex: 0 0 100%;
-            max-width: 100%;
-            margin-right: 0; /* Remove margin for small screens */
-        }
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-right: 0; /* Remove margin for small screens */
+        margin-left: 0; /* Remove left margin for small screens */
     }
+
+    .row {
+        flex-direction: column; /* Change to a column layout for small screens */
+        align-items: center; /* Center the cards horizontally */
+    }
+
+    .card {
+        margin-right: 0; /* Remove right margin for small screens */
+        margin-bottom: 15px; /* Add bottom margin for spacing between cards */
+    }
+}
 
     </style>
 @section('content')

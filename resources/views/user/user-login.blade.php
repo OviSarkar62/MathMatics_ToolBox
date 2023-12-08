@@ -8,6 +8,19 @@
             background-size: auto; /* Adjust this based on your SVG sizes */
             height: 20vh;
         }
+
+    @media (max-width: 767px) {
+        /* Styles for screens smaller than 768px (e.g., mobile phones) */
+        #card {
+            margin-top: 15px;
+            height: auto; /* Adjust height as needed for mobile devices */
+        }
+
+        body {
+            background: none; /* Remove background styling for smaller screens */
+        }
+    }
+
 </style>
 
 @section('content')
@@ -16,7 +29,7 @@
         <div class="col-md-6 offset-md-6 mt-5 mb-5">
             <div class="card shadow-lg" style="margin-top: 80px;height: 340px;border: 1px solid #1abc9c;">
                 <div class="card-header" style="background-color: #2c3e50; color: #fff;">
-                    <h4 class="mb-0">Login</h4>
+                    <h6 class="mb-0">Login</h6>
                 </div>
                 <form action="{{route('login.post')}}" method="post" class="p-4">@csrf
                     <div class="card-body">

@@ -19,7 +19,7 @@
     .card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         transition: box-shadow 0.3s ease;
-        margin-top: 80px;
+        margin-top: 55px;
     }
 
     .card:hover {
@@ -39,10 +39,39 @@
     }
 
     /* Responsive adjustments */
-    @media (max-width: 767px) {
-        .col-md-6 {
-            flex: 0 0 100%;
-            max-width: 100%;
+    @media (max-width: 576px) {
+        .card {
+            margin-top: 20px;
+        }
+        body {
+            background: none; /* Remove background styling for smaller screens */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            margin-top: 40px;
+        }
+        body {
+            background: none; /* Remove background styling for smaller screens */
+        }
+    }
+
+    @media (max-width: 992px) {
+        .card {
+            margin-top: 60px;
+        }
+        body {
+            background: none; /* Remove background styling for smaller screens */
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .card {
+            margin-top: 80px;
+        }
+        body {
+            background: none; /* Remove background styling for smaller screens */
         }
     }
 </style>

@@ -66,7 +66,7 @@
                 <div class="alert alert-danger">{{ Session::get('error') }}</div>
             @endif
 
-            <div style="margin-top: 85px;"></div>
+            <div style="margin-top: 55px;"></div>
 
             <div class="row justify-content-center">
                 <!-- Arithmetic Operations Card -->

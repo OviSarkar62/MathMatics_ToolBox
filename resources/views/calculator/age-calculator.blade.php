@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa; /* Light background color */
-    }
 
     .container {
         max-width: 600px;
@@ -12,7 +8,7 @@
     }
 
     .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         transition: box-shadow 0.3s ease;
         margin-top: 80px;
     }
@@ -36,14 +32,14 @@
     /* Responsive adjustments */
     @media (max-width: 767px) {
         .card {
-            margin-top: 20px;
+            margin-top: 50px;
         }
     }
 </style>
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
                     <h5>Age Calculator</h5>
@@ -130,7 +126,7 @@
         const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
 
         // Clear existing options
-        daySelect.innerHTML = '';
+        daySelect.options.length = 0;
 
         // Populate day options
         for (let i = 1; i <= daysInMonth; i++) {
@@ -146,6 +142,23 @@
         return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
     }
 
+    // Function to adjust day options based on leap year
+    function adjustDayOptions(daySelect, isLeap, selectedMonth, selectedYear) {
+        // Clear existing options
+        daySelect.options.length = 0;
+
+        // Define the maximum number of days for each month
+        const maxDaysByMonth = [31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        // Populate day options
+        for (let i = 1; i <= maxDaysByMonth[selectedMonth - 1]; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            daySelect.appendChild(option);
+        }
+    }
+
     // Event listener for changes in the "dob-year" select
     document.getElementById('dob-year').addEventListener('input', function () {
         const yearSelect = this;
@@ -156,7 +169,7 @@
 
         // Adjust day options based on leap year
         const isLeap = isLeapYear(parseInt(yearSelect.value));
-        adjustDayOptions(daySelect, isLeap);
+        adjustDayOptions(daySelect, isLeap, parseInt(monthSelect.value), parseInt(yearSelect.value));
     });
 
     // Event listener for changes in the "dob-month" select
@@ -169,7 +182,7 @@
 
         // Adjust day options based on leap year
         const isLeap = isLeapYear(parseInt(yearSelect.value));
-        adjustDayOptions(daySelect, isLeap);
+        adjustDayOptions(daySelect, isLeap, parseInt(monthSelect.value), parseInt(yearSelect.value));
     });
 
     // Event listener for changes in the "at-year" select
@@ -182,7 +195,7 @@
 
         // Adjust day options based on leap year
         const isLeap = isLeapYear(parseInt(yearSelect.value));
-        adjustDayOptions(daySelect, isLeap);
+        adjustDayOptions(daySelect, isLeap, parseInt(monthSelect.value), parseInt(yearSelect.value));
     });
 
     // Event listener for changes in the "at-month" select
@@ -195,25 +208,8 @@
 
         // Adjust day options based on leap year
         const isLeap = isLeapYear(parseInt(yearSelect.value));
-        adjustDayOptions(daySelect, isLeap);
+        adjustDayOptions(daySelect, isLeap, parseInt(monthSelect.value), parseInt(yearSelect.value));
     });
-
-    // Function to adjust day options based on leap year
-    function adjustDayOptions(daySelect, isLeap) {
-        // Clear existing options
-        daySelect.innerHTML = '';
-
-        // Get the maximum number of days for the selected month and year
-        const maxDays = isLeap ? 29 : 28; // Assuming February has 29 days in a leap year
-
-        // Populate day options
-        for (let i = 1; i <= maxDays; i++) {
-            const option = document.createElement('option');
-            option.value = i;
-            option.textContent = i;
-            daySelect.appendChild(option);
-        }
-    }
 
     // Function to calculate age
     function calculateAge() {
@@ -249,27 +245,27 @@
         ageOutput.textContent = `Age: ${ageInYears} years, ${ageInMonths} months, ${ageInDays} days`;
     }
 
-   // Event listener for the "Calculate" button
-   document.getElementById('calculate').addEventListener('click', calculateAge);
+    // Event listener for the "Calculate" button
+    document.getElementById('calculate').addEventListener('click', calculateAge);
 
-// Function to handle the form reset
-function handleReset() {
-    // Reset input field values
-    document.getElementById('dob-year').value = '';
-    document.getElementById('dob-month').value = '1';
-    document.getElementById('dob-day').innerHTML = ''; // Clear day options
+    // Function to handle the form reset
+    function handleReset() {
+        // Reset input field values
+        document.getElementById('dob-year').value = '';
+        document.getElementById('dob-month').value = '1';
+        document.getElementById('dob-day').options.length = 0; // Clear day options
 
-    document.getElementById('at-year').value = '';
-    document.getElementById('at-month').value = '1';
-    document.getElementById('at-day').innerHTML = ''; // Clear day options
+        document.getElementById('at-year').value = '';
+        document.getElementById('at-month').value = '1';
+        document.getElementById('at-day').options.length = 0; // Clear day options
 
-    // Clear the age output
-    document.getElementById('age-output').innerText = '';
-}
+        // Clear the age output
+        document.getElementById('age-output').innerText = '';
+    }
 
-// Event listener for the "Reset" button
-document.getElementById('reset').addEventListener('click', handleReset);
-
+    // Event listener for the "Reset" button
+    document.getElementById('reset').addEventListener('click', handleReset);
 </script>
+
 @endsection
 

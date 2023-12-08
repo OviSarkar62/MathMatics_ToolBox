@@ -47,7 +47,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentails))
         {
-            return redirect()->to('dashboard');
+            return redirect()->to('home');
         } else
         {
             return redirect()->to('login')->with('errorMessage','Wrong email or password');

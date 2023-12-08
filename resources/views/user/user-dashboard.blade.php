@@ -1,15 +1,14 @@
 @extends('layouts.app')
 <style>
-
-
     .container {
         max-width: 1200px;
+
     }
 
     .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         transition: box-shadow 0.3s ease;
-        margin-bottom: 20px;
+
 
     }
 
@@ -50,11 +49,12 @@
     }
     /* Responsive adjustments */
     @media (max-width: 767px) {
-        .card {
-            margin-top: 20px;
-        }
+    .card {
+        width: 94%;
+        margin-left: auto;
+        margin-right: auto;
     }
-
+}
 
 </style>
 
@@ -70,7 +70,7 @@
                 <div class="alert alert-danger">{{ Session::get('error') }}</div>
             @endif
 
-            <div style="margin-top: 110px;"></div>
+            <div style="margin-top: 90px;"></div>
                 <div class="card-body">
                     <div class="card mb-4 animated-card-arithmetic">
                         <div class="card-body">
@@ -150,7 +150,7 @@
                                 <div class="col-md-4">
                                     <ul>
                                         <li><a href="{{ route('metric-imperial-converter.index') }}">Metric to Imperial Converter</a></li>
-                                        <li><a href="{{ route('time-zone-converter.index') }}">Time Zone Converter</a></li>
+                                        <li><a href="{{ route('time-zone-converter.index') }}">Time Converter</a></li>
                                         <li><a href="{{ route('gpa-percentage-converter.index') }}">GPA Percentage Converter</a></li>
                                         <li><a href="{{ route('interest-rate-converter.index') }}">Interest Rate Converter</a></li>
                                     </ul>

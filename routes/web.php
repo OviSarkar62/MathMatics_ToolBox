@@ -24,7 +24,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // User Dashboard
-Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+Route::get('/home', [UserController::class, 'index'])->name('user.dashboard');
 
 Route::middleware(['auth'])->group(function () {
 // Calculate Maths Routes

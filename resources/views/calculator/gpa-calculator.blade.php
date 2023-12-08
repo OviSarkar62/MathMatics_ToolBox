@@ -1,17 +1,12 @@
 @extends('layouts.app')
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa; /* Light background color */
-    }
-
     .container {
         max-width: 800px;
         margin: 0 auto;
     }
 
     .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         transition: box-shadow 0.3s ease;
         margin-top: 80px;
     }
@@ -31,7 +26,7 @@
     /* Responsive adjustments */
     @media (max-width: 767px) {
         .card {
-            margin-top: 20px;
+            margin-top: 50px;
         }
     }
 
@@ -66,7 +61,7 @@
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
                     <h5>GPA Calculator</h5>

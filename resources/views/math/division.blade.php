@@ -2,18 +2,13 @@
 <style>
 /* Add this style to your existing CSS file or create a new one */
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Light background color */
-}
-
 .container {
     max-width: 600px;
     margin: 0 auto;
 }
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     transition: box-shadow 0.3s ease;
     margin-top: 80px;
 }

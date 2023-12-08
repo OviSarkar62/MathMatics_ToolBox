@@ -44,7 +44,7 @@
                         <div class="form-group mb-5 mt-3">
                             <button class="btn btn-primary" id="btnRegister" type="submit">Register</button>
                         </div>
-                        <div class="text-center" style="margin-top: -50px;">
+                        <div class="text-center" style="margin-top: -40px;">
                             <p>Already have an account? <a href="{{ route('login') }}">Login</a></p>
                         </div>
                     </div>

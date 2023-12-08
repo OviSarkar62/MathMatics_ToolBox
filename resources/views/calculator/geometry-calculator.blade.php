@@ -8,7 +8,7 @@
 }
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     transition: box-shadow 0.3s ease;
     margin-top: 80px;
 }

@@ -33,12 +33,12 @@
         border-radius: 8px;
         padding: 20px;
         margin-top: 100px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         transition: box-shadow 0.3s ease;
     }
 
     .calculator:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     #display {
@@ -119,11 +119,14 @@
 
     @media screen and (max-width: 600px) {
         .calculator {
-            width: 90%;
+            width: 100%;
+        }
+        #display {
+            width: 95%;
         }
 
         button {
-            width: 30%;
+            width: 31%;
         }
     }
 </style>

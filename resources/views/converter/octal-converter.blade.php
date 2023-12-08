@@ -6,7 +6,7 @@
     }
 
     .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         transition: box-shadow 0.3s ease;
         margin-top: 100px;
     }
@@ -30,7 +30,7 @@
     /* Responsive adjustments */
     @media (max-width: 767px) {
         .card {
-            margin-top: 20px;
+            margin-top: 50px;
         }
     }
 
@@ -50,7 +50,7 @@
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
                     <h5>Octal Converter</h5>

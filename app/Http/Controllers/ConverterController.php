@@ -30,7 +30,7 @@ class ConverterController extends Controller
     }
     public function timeZoneConverter()
     {
-        return view('converter.time-zone-converter');
+        return view('converter.time-converter');
     }
     public function gpaToPercentageConverter()
     {

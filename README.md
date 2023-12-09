@@ -22,11 +22,11 @@ To set up Todo locally, follow these steps:
 
 - Clone the repository:
 
-      git clone https://github.com/OviSarkar62/ToDo-Application.git
+      git clone https://github.com/OviSarkar62/MathMatics_ToolBox.git
       
 - Navigate to the project directory:
 
-      cd ToDo-Application
+      cd MathMatics_ToolBox
 
 - In the .env file in the root directory set the following environment variables:
 
@@ -41,11 +41,11 @@ To set up Todo locally, follow these steps:
 
       php artisan serve
   
-- Access the application. Open your web browser and visit http://localhost:8000 to access the ToDo application.
+- Access the application. Open your web browser and visit http://localhost:8000 to access the MathMatics ToolBox application.
 
 ## Usage
 
-- Add input for math operations: Click the "calculate" button to calculate an arithmetic operation.
+- Arithmetic Operations: Click the "calculate" button to calculate an arithmetic operation.
 
 - Calculators: Almost nine types of calculators are used for calculating daily math stuff.
 

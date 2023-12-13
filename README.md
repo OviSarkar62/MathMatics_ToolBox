@@ -37,6 +37,10 @@ To set up Todo locally, follow these steps:
       DB_USERNAME=<root>
       DB_PASSWORD=<Pass>
 
+- Migrate
+
+      php artisan migrate
+  
 - Start the server: 
 
       php artisan serve

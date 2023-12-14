@@ -6,6 +6,7 @@ The MathMatics ToolBox Application is a collection of mathematical tools designe
 
 ## Contents
 
+- [Project View](#Project View)
 - [Stack](#stack)
 - [Installation](#installation) 
 - [Usage](#usage) 

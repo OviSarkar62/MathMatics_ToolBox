@@ -21,7 +21,7 @@ The MathMatics ToolBox Application is a collection of mathematical tools designe
   
 - **Login**
 <p align="center">
-  <img alt="img-name" src="Images/Appointment Lists from User Profile.png" width="700">
+  <img alt="img-name" src="public/assets/img/login ss1.png" width="700">
 </p>
 
 ## Stack

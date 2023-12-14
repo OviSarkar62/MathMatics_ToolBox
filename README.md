@@ -12,7 +12,7 @@ The MathMatics ToolBox Application is a collection of mathematical tools designe
 
 ## Project View
 
-<h4>1. For User Profile<h4/>
+<h4>For User Profile<h4/>
 
 - **Register**
 <p align="center">

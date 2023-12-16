@@ -15,8 +15,6 @@ The MathMatics ToolBox Application is a collection of mathematical tools designe
 
 ## Project-View
 
-<h4>For User Profile<h4/>
-
 - **Register**
 <p align="center">
   <img alt="img-name" src="public/assets/img/reg ss1.png" width="700">

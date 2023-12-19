@@ -2,7 +2,7 @@
 
 # MathMatics ToolBox
 
-The MathMatics ToolBox Application is a collection of mathematical tools designed to help users to keep all the necessary math tools in one place. It provides a user-friendly interface for calculating daily life's math-related problems. It is designed to be user-friendly, efficient, and extensible for various applications in mathematics.
+The MathMatics ToolBox Application is a collection of mathematical tools designed to help users to keep all the necessary math tools in one place. It provides an interface for calculating daily life's math-related problems. It is designed to be user-friendly, efficient, and extensible for various applications in mathematics.
 
 <em> Visit complete live project [MathMatics Toolbox](https://math-matics-toolbox.boimelafoundation.com/public/login) </em>
 

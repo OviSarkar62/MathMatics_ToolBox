@@ -166,19 +166,14 @@
             const inputGroups = document.querySelectorAll('.input-group');
 
             inputGroups.forEach(function(inputGroup, index) {
-                const wholeInput = inputGroup.querySelector('input[name="whole[]"]');
                 const numeratorInput = inputGroup.querySelector('input[name="numerator[]"]');
                 const denominatorInput = inputGroup.querySelector('input[name="denominator[]"]');
+                const wholeInput = inputGroup.querySelector('input[name="whole[]"]');
 
-                if (index === 0) {
-                    // Reset static input fields
-                    wholeInput.value = '';
-                    numeratorInput.value = '';
-                    denominatorInput.value = '';
-                } else {
-                    // Remove dynamically added input fields
-                    inputGroup.parentNode.removeChild(inputGroup);
-                }
+                // Reset the values of all input fields
+                wholeInput.value = '';
+                numeratorInput.value = '';
+                denominatorInput.value = '';
             });
 
             const resultValues = document.getElementById('result-values');
@@ -225,8 +220,14 @@
             const diffNumerator = improper1 * denominator2 - improper2 * denominator1;
 
             // Calculate the whole number, numerator, and denominator
-            const diffWhole = Math.floor(diffNumerator / commonDenominator);
-            const diffNumeratorRemainder = diffNumerator % commonDenominator;
+            let diffWhole = Math.floor(diffNumerator / commonDenominator);
+            let diffNumeratorRemainder = Math.abs(diffNumerator) % commonDenominator;
+
+            // Adjust the sign based on the original sign of the numerator
+            if (diffNumerator < 0) {
+                diffWhole = -diffWhole;
+                diffNumeratorRemainder = -diffNumeratorRemainder;
+            }
 
             return {
                 whole: diffWhole,
@@ -235,8 +236,72 @@
             };
         }
 
+
+
+         // Function to find the greatest common divisor
+         function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
+
+        // Function to simplify a fraction
+        function simplifyFraction(numerator, denominator) {
+            const commonDivisor = gcd(numerator, denominator);
+            return {
+                numerator: numerator / commonDivisor,
+                denominator: denominator / commonDivisor
+            };
+        }
+
+        // Function to format a fraction
+        function formatFraction(whole, numerator, denominator) {
+            if (whole === 0) {
+                if (numerator === 0) {
+                    return '0';
+                } else {
+                    return `${numerator}/${denominator}`;
+                }
+            } else {
+                if (numerator === 0) {
+                    return `${whole}`;
+                } else {
+                    return `${whole} ${Math.abs(numerator)}/${denominator}`;
+                }
+            }
+        }
+
+
+        // Function to subtract mixed fractions and simplify result
+        function subtractMixedFractions(whole1, numerator1, denominator1, whole2, numerator2, denominator2) {
+            // Convert mixed fractions to improper fractions
+            const improper1 = whole1 * denominator1 + numerator1;
+            const improper2 = whole2 * denominator2 + numerator2;
+
+            // Find a common denominator
+            const commonDenominator = denominator1 * denominator2;
+
+            // Subtract the numerators
+            const diffNumerator = improper1 * denominator2 - improper2 * denominator1;
+
+            // Calculate the whole number, numerator, and denominator
+            let diffWhole = Math.floor(diffNumerator / commonDenominator);
+            let diffNumeratorRemainder = Math.abs(diffNumerator) % commonDenominator;
+
+            // Adjust the sign based on the original sign of the numerator
+            if (diffNumerator < 0) {
+                diffWhole = -Math.abs(diffWhole); // Ensure the whole part is negative
+                diffNumeratorRemainder = -diffNumeratorRemainder;
+            }
+
+            return {
+                whole: diffWhole,
+                numerator: diffNumeratorRemainder,
+                denominator: commonDenominator
+            };
+        }
+
+
         // Calculate subtraction on button click
-        document.getElementById('calculate-button').addEventListener('click', function() {
+        document.getElementById('calculate-button').addEventListener('click', function () {
             const wholes = document.getElementsByName('whole[]');
             const numerators = document.getElementsByName('numerator[]');
             const denominators = document.getElementsByName('denominator[]');
@@ -262,7 +327,7 @@
                 }
             }
 
-            inputText += '<br>'.repeat(wholes.length - 1); // Add line breaks between input mixed fractions
+            inputText += '<br>'; // Add line breaks between input mixed fractions
 
             // Initialize with the components of the first mixed fraction
             const resultFraction = {
@@ -296,7 +361,8 @@
                 }
             }
 
-            document.getElementById('result-values').innerHTML = `${inputText} = ${formatFraction(resultFraction.whole, resultFraction.numerator, resultFraction.denominator)}`;
+            document.getElementById('result-values').innerHTML = `${inputText} = ${formatFraction(resultFraction.whole+1, resultFraction.numerator, resultFraction.denominator)}`;
         });
+
     </script>
 @endsection

@@ -161,21 +161,17 @@ body {
                 const numeratorInput = inputGroup.querySelector('input[name="numerator[]"]');
                 const denominatorInput = inputGroup.querySelector('input[name="denominator[]"]');
 
-                if (index === 0) {
-                    // Reset static input fields
-                    numeratorInput.value = '';
-                    denominatorInput.value = '';
-                } else {
-                    // Remove dynamically added input fields
-                    inputGroup.parentNode.removeChild(inputGroup);
-                }
+                // Reset the values of all input fields
+                numeratorInput.value = '';
+                denominatorInput.value = '';
             });
 
             const resultValues = document.getElementById('result-values');
-            const total = document.getElementById('total');
             resultValues.innerHTML = ''; // Clear the result values
+            const total = document.getElementById('total');
             total.innerHTML = '';
         });
+
 
         // Function to format a fraction
         function formatFraction(numerator, denominator) {
@@ -210,6 +206,7 @@ body {
             return simplifyFraction(productNumerator, productDenominator);
         }
 
+
         // Calculate multiplication on form submit
         document.getElementById('multiplication-form').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -225,6 +222,12 @@ body {
             let resultText = '';
             let inputText = '';
 
+            // Initialize with the numerator and denominator of the first fraction
+            let resultFraction = {
+                numerator: parseInt(numerators[0].value),
+                denominator: parseInt(denominators[0].value)
+            };
+
             // Display the input fractions
             for (let i = 0; i < numerators.length; i++) {
                 const numerator = parseInt(numerators[i].value);
@@ -236,18 +239,12 @@ body {
                 }
             }
 
-            inputText += '<br>'.repeat(numerators.length - 1); // Add line breaks between input fractions
-
-            // Initialize with the numerator and denominator of the first fraction
-            let resultFraction = {
-                numerator: parseInt(numerators[0].value),
-                denominator: parseInt(denominators[0].value)
-            };
-
             // Multiply each subsequent fraction with the initial one
             for (let i = 1; i < numerators.length; i++) {
                 const numerator = parseInt(numerators[i].value);
                 const denominator = parseInt(denominators[i].value);
+
+                // Multiply fractions and update the result
                 resultFraction = multiplyFractions(
                     resultFraction.numerator,
                     resultFraction.denominator,
@@ -255,14 +252,16 @@ body {
                     denominator
                 );
 
-                resultText += `${formatFraction(resultFraction.numerator, resultFraction.denominator)}`;
-
                 if (i < numerators.length - 1) {
-                    resultText += '<br>';
+                    resultText += `${formatFraction(numerator, denominator)} x `;
+                } else {
+                    resultText += `${formatFraction(numerator, denominator)}`;
                 }
             }
 
-            document.getElementById('result-values').innerHTML = `${inputText} = ${resultText}`;
+            // Display the simplified result
+            const simplifiedResult = formatFraction(resultFraction.numerator, resultFraction.denominator);
+            document.getElementById('result-values').innerHTML = `${inputText} = ${simplifiedResult}`;
         });
     </script>
 @endsection

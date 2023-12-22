@@ -161,23 +161,18 @@
         });
 
         // Reset input fields
-        document.getElementById('reset-input').addEventListener('click', function() {
+         document.getElementById('reset-input').addEventListener('click', function() {
             const inputGroups = document.querySelectorAll('.input-group');
 
             inputGroups.forEach(function(inputGroup, index) {
-                const wholeInput = inputGroup.querySelector('input[name="whole[]"]');
                 const numeratorInput = inputGroup.querySelector('input[name="numerator[]"]');
                 const denominatorInput = inputGroup.querySelector('input[name="denominator[]"]');
+                const wholeInput = inputGroup.querySelector('input[name="whole[]"]');
 
-                if (index === 0) {
-                    // Reset static input fields
-                    wholeInput.value = '';
-                    numeratorInput.value = '';
-                    denominatorInput.value = '';
-                } else {
-                    // Remove dynamically added input fields
-                    inputGroup.parentNode.removeChild(inputGroup);
-                }
+                // Reset the values of all input fields
+                wholeInput.value = '';
+                numeratorInput.value = '';
+                denominatorInput.value = '';
             });
 
             const resultValues = document.getElementById('result-values');
@@ -262,7 +257,7 @@
                 }
             }
 
-            inputText += '<br>'.repeat(wholes.length - 1); // Add line breaks between input mixed fractions
+            inputText += '<br>'; // Add line breaks between input mixed fractions
 
             // Initialize with the components of the first mixed fraction
             const resultFraction = {
@@ -291,12 +286,10 @@
 
                 resultText += `${formatFraction(result.whole, result.numerator, result.denominator)}`;
 
-                if (i < wholes.length - 1) {
-                    resultText += '<br>';
-                }
             }
 
-            document.getElementById('result-values').innerHTML = `${inputText} = ${formatFraction(resultFraction.whole, resultFraction.numerator, resultFraction.denominator)}`;
+            document.getElementById('result-values').innerHTML = `${inputText}=${formatFraction(resultFraction.whole, resultFraction.numerator, resultFraction.denominator)}`;
         });
     </script>
+
 @endsection

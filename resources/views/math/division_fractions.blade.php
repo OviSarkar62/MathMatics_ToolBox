@@ -160,21 +160,17 @@
                 const numeratorInput = inputGroup.querySelector('input[name="numerator[]"]');
                 const denominatorInput = inputGroup.querySelector('input[name="denominator[]"]');
 
-                if (index === 0) {
-                    // Reset static input fields
-                    numeratorInput.value = '';
-                    denominatorInput.value = '';
-                } else {
-                    // Remove dynamically added input fields
-                    inputGroup.parentNode.removeChild(inputGroup);
-                }
+                // Reset the values of all input fields
+                numeratorInput.value = '';
+                denominatorInput.value = '';
             });
 
             const resultValues = document.getElementById('result-values');
-            const total = document.getElementById('total');
             resultValues.innerHTML = ''; // Clear the result values
+            const total = document.getElementById('total');
             total.innerHTML = '';
         });
+
 
         // Function to divide fractions and simplify result
         function divideFractions(numerator1, denominator1, numerator2, denominator2) {
@@ -210,8 +206,8 @@
             }
         }
 
-        // Calculate division on form submit
-        document.getElementById('division-form').addEventListener('submit', function(event) {
+       // Calculate division on form submit
+        document.getElementById('division-form').addEventListener('submit', function (event) {
             event.preventDefault();
             const numerators = document.getElementsByName('numerator[]');
             const denominators = document.getElementsByName('denominator[]');
@@ -236,7 +232,7 @@
                 }
             }
 
-            inputText += '<br>'.repeat(numerators.length - 1); // Add line breaks between input fractions
+            inputText = inputText.trim(); // Remove leading/trailing whitespace
 
             // Initialize with the numerator and denominator of the first fraction
             let resultFraction = {
@@ -255,14 +251,19 @@
                     denominator
                 );
 
+                // Update the resultText with the intermediate results
                 resultText += `${formatFraction(resultFraction.numerator, resultFraction.denominator)}`;
 
                 if (i < numerators.length - 1) {
-                    resultText += '<br>';
+                    resultText += ' ÷ ';
                 }
             }
 
-            document.getElementById('result-values').innerHTML = `${inputText} = ${resultText}`;
+            // Display the final result
+            document.getElementById('result-values').innerHTML = `${inputText} = ${formatFraction(resultFraction.numerator, resultFraction.denominator)}`;
         });
+
     </script>
+
+
 @endsection

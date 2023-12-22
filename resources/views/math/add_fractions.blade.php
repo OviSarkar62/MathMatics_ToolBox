@@ -151,14 +151,9 @@
                 const numeratorInput = inputGroup.querySelector('input[name="numerator[]"]');
                 const denominatorInput = inputGroup.querySelector('input[name="denominator[]"]');
 
-                if (index === 0) {
-                    // Reset static input fields
-                    numeratorInput.value = '';
-                    denominatorInput.value = '';
-                } else {
-                    // Remove dynamically added input fields
-                    inputGroup.parentNode.removeChild(inputGroup);
-                }
+                // Reset the values of all input fields
+                numeratorInput.value = '';
+                denominatorInput.value = '';
             });
 
             const resultValues = document.getElementById('result-values');
